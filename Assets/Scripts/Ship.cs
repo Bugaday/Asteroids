@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour
     public Bullet bullet;
 
     Rigidbody2D rb;
+    AudioSource aSource;
     float moveInputX = 0;
     float moveInputY = 0;
     Transform engine;
@@ -21,12 +22,14 @@ public class Ship : MonoBehaviour
     public float Force = 10f;
 
     float timeToNextShot = 0;
+    [SerializeField]
     float timeBetweenShots = 0.05f;
     bool canShoot = true;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        aSource = GetComponent<AudioSource>();
         engine = transform.GetChild(0);
         hitLayer = LayerMask.NameToLayer("CanHitShip");
         gm = FindObjectOfType<GameManager>();
@@ -59,6 +62,8 @@ public class Ship : MonoBehaviour
             {
                 Bullet bulletInstance = Instantiate(bullet, transform.position, Quaternion.Euler(transform.up));
                 bulletInstance.dir = transform.up;
+                aSource.Play();
+
                 canShoot = false;
                 timeToNextShot = timeBetweenShots;
             }
