@@ -5,14 +5,21 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     public Bullet bullet;
+    public GameObject SpritesRoot;
+    public Transform Engine;
+    public Transform EngineSide;
+    public GameObject DestroyedRoot;
 
     Rigidbody2D rb;
     AudioSource aSource;
+    Animation anim;
     float moveInputX = 0;
     float moveInputY = 0;
-    Transform engine;
+    float mouseX = 0;
+    float mouseY = 0;
 
     GameManager gm;
+    AudioManager am;
 
     LayerMask hitLayer;
 
@@ -26,13 +33,18 @@ public class Ship : MonoBehaviour
     float timeBetweenShots = 0.05f;
     bool canShoot = true;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         aSource = GetComponent<AudioSource>();
-        engine = transform.GetChild(0);
+        anim = GetComponent<Animation>();
+    }
+
+    private void Start()
+    {
         hitLayer = LayerMask.NameToLayer("CanHitShip");
         gm = FindObjectOfType<GameManager>();
+        am = FindObjectOfType<AudioManager>();
 
         StartCoroutine(StartInvincible());
     }
@@ -41,10 +53,17 @@ public class Ship : MonoBehaviour
     {
         moveInputX = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
+        mouseX = Input.GetAxis("Mouse X");
+        mouseY = Input.GetAxis("Mouse Y");
 
-        if(moveInputX != 0)
+        Vector2 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
+
+
+        if (moveInputX != 0)
         {
-            transform.Rotate(0, 0, -moveInputX * RotSpeed * Time.deltaTime);
+            //transform.Rotate(0, 0, -moveInputX * RotSpeed * Time.deltaTime);
         }
 
         if(timeToNextShot <= 0)
@@ -69,7 +88,8 @@ public class Ship : MonoBehaviour
             }
         }
 
-        engine.localScale = new Vector3(engine.localScale.x,moveInputY * 1.5f,engine.localScale.z);
+        Engine.localScale = new Vector3(Engine.localScale.x,moveInputY * 1.5f,Engine.localScale.z);
+        EngineSide.localScale = new Vector3(Engine.localScale.x, moveInputX, Engine.localScale.z);
     }
 
     // Update is called once per frame
@@ -77,7 +97,11 @@ public class Ship : MonoBehaviour
     {
         if(moveInputY != 0)
         {
-            rb.AddForce(transform.up * Force);
+            rb.AddForce(moveInputY * transform.up * Force);
+        }
+        if (moveInputX != 0)
+        {
+            rb.AddForce(moveInputX * transform.right * Force);
         }
 
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, VelClamp);
@@ -89,16 +113,39 @@ public class Ship : MonoBehaviour
         {
             if (damageable)
             {
-                gm.ShipDestroyed();
-                Destroy(gameObject);
+                DestroyShip();
             }
         }
+    }
+
+    void DestroyShip()
+    {
+        am.Play("ShipExplosion");
+
+        GameObject destroyedShip = Instantiate(DestroyedRoot, transform.position, transform.rotation);
+        foreach (Transform piece in destroyedShip.transform)
+        {
+            Vector2 directionOfPiece = (piece.position - transform.position).normalized;
+
+            Rigidbody2D pieceRb = piece.GetComponent<Rigidbody2D>();
+
+            pieceRb.AddForce(directionOfPiece * 100);
+            pieceRb.AddTorque(Random.Range(-200, 0));
+        }
+
+        gm.ShipDestroyed();
+        Destroy(gameObject);
     }
 
     public IEnumerator StartInvincible()
     {
         damageable = false;
+        //anim.Play();
         yield return new WaitForSeconds(2);
+        //anim.Stop();
+        //SpritesRoot.SetActive(true);
         damageable = true;
     }
+
+
 }

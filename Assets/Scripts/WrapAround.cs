@@ -16,24 +16,30 @@ public class WrapAround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        worldToView = cam.WorldToViewportPoint(new Vector3(transform.position.x, transform.position.y, cam.nearClipPlane));
+        worldToView = cam.WorldToViewportPoint(transform.position);
 
-        if (worldToView.x > 1)
+        Vector3 newPosition = transform.position;
+
+        if (worldToView.x > 1 || worldToView.x < 0)
         {
-            transform.position = cam.ViewportToWorldPoint(new Vector3(0, worldToView.y, cam.nearClipPlane));
-        }
-        else if (worldToView.x < 0)
-        {
-            transform.position = cam.ViewportToWorldPoint(new Vector3(1, worldToView.y, cam.nearClipPlane));
+            newPosition.x = -newPosition.x;
+
+            //float newX = cam.ViewportToWorldPoint(Vector3.zero).x;
+            //transform.position = new Vector3(newX,transform.position.y, 0);
         }
 
-        if (worldToView.y > 1)
+        if (worldToView.y > 1 || worldToView.y < 0)
         {
-            transform.position = cam.ViewportToWorldPoint(new Vector3(worldToView.x, 0, cam.nearClipPlane));
+            newPosition.y = -newPosition.y;
+            //float newY = cam.ViewportToWorldPoint(Vector3.zero).y;
+            //transform.position = new Vector3(transform.position.x, newY, 0);
         }
         else if (worldToView.y < 0)
         {
-            transform.position = cam.ViewportToWorldPoint(new Vector3(worldToView.x, 1, cam.nearClipPlane));
+            //float newY = cam.ViewportToWorldPoint(Vector3.one).y;
+            //transform.position = new Vector3(transform.position.x, newY, 0);
         }
+
+        transform.position = newPosition;
     }
 }

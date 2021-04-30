@@ -159,7 +159,7 @@ MonoBehaviour:
   - {fileID: -1558382365333939957, guid: ab36ae4401efa194186fd569e88cf543, type: 3}
   NewShip: {fileID: 903450903714114553, guid: a7cdb41dde0f2454bacb2254b0496323, type: 3}
   ufo: {fileID: -7996962550788759454, guid: 3899e028c9832be4193fb8a50b0618ef, type: 3}
-  AsteroidsToSpawn: 3
+  AsteroidsToSpawn: 1
   ExtraLifeInterval: 40000
   lives: 3
   Score: 0
@@ -372,7 +372,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 650512906}
-  - component: {fileID: 650512905}
   - component: {fileID: 650512904}
   m_Layer: 0
   m_Name: AudioManager
@@ -393,102 +392,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf3714ccbcefb041bcfb94f9aedec26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &650512905
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650512903}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  sounds:
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 3b6be47ab07f7624294d7f123b8dc56b, type: 3}
+    volume: 0.9
+    pitch: 1
+    source: {fileID: 0}
+  - name: ShipExplosion
+    clip: {fileID: 8300000, guid: a80dd9d10c2a3bc47a3ebf90345a0c4b, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &650512906
 Transform:
   m_ObjectHideFlags: 0
@@ -1358,7 +1272,7 @@ PrefabInstance:
     - target: {fileID: 1710689544951512866, guid: a7cdb41dde0f2454bacb2254b0496323,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 1710689544951512866, guid: a7cdb41dde0f2454bacb2254b0496323,
         type: 3}

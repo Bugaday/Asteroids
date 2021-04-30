@@ -98,12 +98,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CheckLevelOver()
     {
-        print("Checking Level");
         int asteroidsLeft = FindObjectsOfType<Asteroid>().Length;
-        print("Asteroids left: " + asteroidsLeft);
         if (asteroidsLeft <= 0)
         {
-            print("No asteroids found");
             AsteroidsToSpawn++;
             NewLevel();
         }
