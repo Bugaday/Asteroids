@@ -18,28 +18,32 @@ public class WrapAround : MonoBehaviour
     {
         worldToView = cam.WorldToViewportPoint(transform.position);
 
-        Vector3 newPosition = transform.position;
+        //Vector3 newPosition = transform.position;
 
-        if (worldToView.x > 1 || worldToView.x < 0)
+        if (worldToView.x > 1.0f || worldToView.x < 0f)
         {
-            newPosition.x = -newPosition.x;
-
-            //float newX = cam.ViewportToWorldPoint(Vector3.zero).x;
-            //transform.position = new Vector3(newX,transform.position.y, 0);
+            if (worldToView.x > 1.0f)
+            {
+                worldToView.x = 0f;
+            }
+            else if (worldToView.x < 0f)
+            {
+                worldToView.x = 1f;
+            }
         }
 
-        if (worldToView.y > 1 || worldToView.y < 0)
+        if (worldToView.y > 1.0f || worldToView.y < 0f)
         {
-            newPosition.y = -newPosition.y;
-            //float newY = cam.ViewportToWorldPoint(Vector3.zero).y;
-            //transform.position = new Vector3(transform.position.x, newY, 0);
-        }
-        else if (worldToView.y < 0)
-        {
-            //float newY = cam.ViewportToWorldPoint(Vector3.one).y;
-            //transform.position = new Vector3(transform.position.x, newY, 0);
+            if (worldToView.y > 1.0f)
+            {
+                worldToView.y = 0f;
+            }
+            else if (worldToView.y < 0f)
+            {
+                worldToView.y = 1f;
+            }
         }
 
-        transform.position = newPosition;
+        transform.position = cam.ViewportToWorldPoint(worldToView);
     }
 }

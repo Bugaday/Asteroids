@@ -10,13 +10,14 @@ public class Ship : MonoBehaviour
     public Transform EngineSide;
     public GameObject DestroyedRoot;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     AudioSource aSource;
     Animation anim;
     float moveInputX = 0;
     float moveInputY = 0;
     float mouseX = 0;
     float mouseY = 0;
+    float rotateInput = 0;
 
     GameManager gm;
     AudioManager am;
@@ -53,19 +54,24 @@ public class Ship : MonoBehaviour
     {
         moveInputX = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
+        rotateInput = Input.GetAxis("Rotate");
+
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
 
+        //Mouse Aiming
         Vector2 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-        transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
+        Quaternion targetAngle = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetAngle, RotSpeed * Time.deltaTime);
 
-
-        if (moveInputX != 0)
+        //Rotate Ship - unused
+        if (rotateInput != 0)
         {
-            //transform.Rotate(0, 0, -moveInputX * RotSpeed * Time.deltaTime);
+            //transform.Rotate(0, 0, -rotateInput * RotSpeed * Time.deltaTime);
         }
 
+        //Fire Rate
         if(timeToNextShot <= 0)
         {
             canShoot = true;
@@ -75,6 +81,7 @@ public class Ship : MonoBehaviour
             timeToNextShot -= Time.deltaTime;
         }
 
+        //Shoot
         if (Input.GetButton("Fire1"))
         {
             if (canShoot)
@@ -95,15 +102,17 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Apply forces from input
         if(moveInputY != 0)
         {
-            rb.AddForce(moveInputY * transform.up * Force);
+            rb.AddForce(moveInputY * Vector2.up * Force);
         }
         if (moveInputX != 0)
         {
-            rb.AddForce(moveInputX * transform.right * Force);
+            rb.AddForce(moveInputX * Vector2.right * Force);
         }
 
+        //Max speed
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, VelClamp);
     }
 

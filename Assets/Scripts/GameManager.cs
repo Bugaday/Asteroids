@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     float ufoTimer = 25;
     float ufoTimeToSpawn;
 
-    Ship CurrentShip;
+    public Ship CurrentShip;
     UIManager um;
     Camera cam;
 
@@ -31,11 +31,12 @@ public class GameManager : MonoBehaviour
 
         ufoTimeToSpawn = ufoTimer;
         extraLifeAtScore = ExtraLifeInterval;
+        CurrentShip = FindObjectOfType<Ship>();
     }
 
     private void Start()
     {
-        CurrentShip = FindObjectOfType<Ship>();
+
         NewLevel();
         StartCoroutine(CheckLevelOver());
     }
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < AsteroidsToSpawn; i++)
         {
-            Vector3 randPos = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
+            Vector3 randPos = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0);
             float randRot = Random.Range(-180, 180);
 
             Asteroid newAsteroid = Instantiate(asteroidTypes[Random.Range(0, asteroidTypes.Length - 1)], randPos, Quaternion.Euler(0, 0, randRot));

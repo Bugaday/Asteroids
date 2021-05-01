@@ -8,6 +8,8 @@ public class Asteroid : MonoBehaviour
     UIManager um;
     AudioManager am;
 
+    public GameObject Explosion;
+
     public int stage = 1;
     int chunks = 2;
     LayerMask bulletMask;
@@ -19,8 +21,8 @@ public class Asteroid : MonoBehaviour
         am = FindObjectOfType<AudioManager>();
 
         Vector2 randDir = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)).normalized;
-        GetComponent<Rigidbody2D>().AddForce(randDir * 20);
-        GetComponent<Rigidbody2D>().AddTorque(Random.Range(-3, 3));
+        GetComponent<Rigidbody2D>().AddForce(randDir * 600);
+        GetComponent<Rigidbody2D>().AddTorque(Random.Range(-9, 9));
         bulletMask = LayerMask.NameToLayer("Bullet");
     }
 
@@ -35,8 +37,7 @@ public class Asteroid : MonoBehaviour
 
         if (stage >= 3)
         {
-            am.Play("Explosion");
-            Destroy(gameObject);
+            DestroyAsteroid();
         }
         else
         {
@@ -50,12 +51,19 @@ public class Asteroid : MonoBehaviour
                 newChunk.transform.localScale /= 3;
 
                 Vector2 randDir = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)).normalized;
-                GetComponent<Rigidbody2D>().AddForce(randDir * 20);
-                GetComponent<Rigidbody2D>().AddTorque(Random.Range(-75 * newChunk.stage, 75 * newChunk.stage));
-                newChunk.GetComponent<Rigidbody2D>().AddForce(randDir * 50 * newChunk.stage);
+                GetComponent<Rigidbody2D>().AddForce(randDir * 200);
+                GetComponent<Rigidbody2D>().AddTorque(Random.Range(-750 * newChunk.stage, 750 * newChunk.stage));
+                newChunk.GetComponent<Rigidbody2D>().AddForce(randDir * 500 * newChunk.stage);
             }
-            am.Play("Explosion");
-            Destroy(gameObject);
+
+            DestroyAsteroid();
         }
+    }
+
+    private void DestroyAsteroid()
+    {
+        Instantiate(Explosion, transform.position, Quaternion.identity);
+        am.Play("Explosion");
+        Destroy(gameObject);
     }
 }
