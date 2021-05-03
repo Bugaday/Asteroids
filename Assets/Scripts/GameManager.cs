@@ -9,10 +9,13 @@ public class GameManager : MonoBehaviour
     public Ship NewShip;
     public UFO ufo;
 
+    public GameObject ExplosionShip;
+    public List<GameObject> ExplosionAsteroid;
+
     public int AsteroidsToSpawn = 5;
     public int ExtraLifeInterval = 40000;
 
-    float ufoTimer = 25;
+    float ufoTimer = 25.0f;
     float ufoTimeToSpawn;
 
     public Ship CurrentShip;
@@ -81,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnUfo()
     {
-        Instantiate(ufo, cam.ViewportToWorldPoint(new Vector3(0, 0.5f, cam.nearClipPlane)), Quaternion.identity);
+        Instantiate(ufo, new Vector3(-100.0f, 0, 0), Quaternion.identity);
     }
 
       public void AddScore(int ScoreToAdd)

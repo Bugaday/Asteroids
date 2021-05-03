@@ -8,8 +8,6 @@ public class Asteroid : MonoBehaviour
     UIManager um;
     AudioManager am;
 
-    public GameObject Explosion;
-
     public int stage = 1;
     int chunks = 2;
     LayerMask bulletMask;
@@ -51,7 +49,7 @@ public class Asteroid : MonoBehaviour
                 newChunk.transform.localScale /= 3;
 
                 Vector2 randDir = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)).normalized;
-                GetComponent<Rigidbody2D>().AddForce(randDir * 200);
+                //GetComponent<Rigidbody2D>().AddForce(randDir * 200);
                 GetComponent<Rigidbody2D>().AddTorque(Random.Range(-750 * newChunk.stage, 750 * newChunk.stage));
                 newChunk.GetComponent<Rigidbody2D>().AddForce(randDir * 500 * newChunk.stage);
             }
@@ -62,7 +60,7 @@ public class Asteroid : MonoBehaviour
 
     private void DestroyAsteroid()
     {
-        Instantiate(Explosion, transform.position, Quaternion.identity);
+        Instantiate(gm.ExplosionAsteroid[stage-1], transform.position, Quaternion.identity);
         am.Play("Explosion");
         Destroy(gameObject);
     }

@@ -9,12 +9,14 @@ public class UFO : MonoBehaviour
     public Bullet bullet;
     public GameObject DestroyedRoot;
 
+    GameManager gm;
     AudioManager am;
 
     Camera cam;
 
     private void Start()
     {
+        gm = FindObjectOfType<GameManager>();
         cam = Camera.main;
         am = FindObjectOfType<AudioManager>();
         StartCoroutine(Shoot());
@@ -38,26 +40,13 @@ public class UFO : MonoBehaviour
         StartCoroutine(Shoot());
     }
 
-    void DestroyUFO()
+    public void DestroyUFO()
     {
         am.Play("UFOExplosion");
+        Instantiate(gm.ExplosionShip, transform.position, Quaternion.identity);
 
-        GameObject destroyedShip = Instantiate(DestroyedRoot, transform.position, transform.rotation);
-        foreach (Transform piece in destroyedShip.transform)
-        {
-            Vector2 directionOfPiece = (piece.position - transform.position).normalized;
-
-            Rigidbody2D pieceRb = piece.GetComponent<Rigidbody2D>();
-
-            pieceRb.AddForce(directionOfPiece * 100);
-            pieceRb.AddTorque(Random.Range(-200, 0));
-        }
+        Instantiate(DestroyedRoot, transform.position, transform.rotation);
 
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        DestroyUFO();
     }
 }

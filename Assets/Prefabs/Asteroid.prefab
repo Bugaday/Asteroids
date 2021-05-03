@@ -199,7 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a89b3365953aaa44a34fa2a03e316f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Explosion: {fileID: 1290715649332758, guid: 587eaecaa621be74486f351c78b4f0a8, type: 3}
   stage: 1
 --- !u!1 &7674074105704645242
 GameObject:
@@ -298,4 +297,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5554382
+  m_Radius: 2

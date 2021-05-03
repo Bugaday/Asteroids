@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
-using System;
+//using System;
 
 public class AudioManager : MonoBehaviour
 {
@@ -18,8 +17,11 @@ public class AudioManager : MonoBehaviour
 
             sound.source.clip = sound.clip;
 
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
+            float newVolume = Random.Range(-0.2f, 0.2f);
+            float newPitch = Random.Range(-0.2f, 0.2f);
+
+            sound.source.volume = sound.volume + newVolume;
+            sound.source.pitch = sound.pitch + newPitch;
 
             ClipDict.Add(sound.name, sound);
         }

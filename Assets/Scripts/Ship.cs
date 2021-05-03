@@ -7,27 +7,42 @@ public class Ship : MonoBehaviour
     public Bullet bullet;
     public GameObject SpritesRoot;
     public Transform Engine;
-    public Transform EngineSide;
+    public Transform ReverseEngine;
+    public Transform LeftLateralEngine;
+    public Transform RightLateralEngine;
+    public Transform LeftRotationEngine;
+    public Transform RightRotationEngine;
+
     public GameObject DestroyedRoot;
 
+    //Components
+    [HideInInspector]
     public Rigidbody2D rb;
     AudioSource aSource;
     Animation anim;
+
+    //Input
     float moveInputX = 0;
     float moveInputY = 0;
     float mouseX = 0;
     float mouseY = 0;
+    float mousePosX;
+    float mousePosY;
     float rotateInput = 0;
 
+    //References
     GameManager gm;
     AudioManager am;
+    Camera cam;
 
     LayerMask hitLayer;
 
+    Vector2 shipForceDir;
     bool damageable = true;
     public float VelClamp = 4f;
     public float RotSpeed = 100f;
-    public float Force = 10f;
+    public float Force = 40f;
+    float angleAimingDifference;
 
     float timeToNextShot = 0;
     [SerializeField]
@@ -46,33 +61,91 @@ public class Ship : MonoBehaviour
         hitLayer = LayerMask.NameToLayer("CanHitShip");
         gm = FindObjectOfType<GameManager>();
         am = FindObjectOfType<AudioManager>();
+        cam = Camera.main;
 
         StartCoroutine(StartInvincible());
     }
 
     private void Update()
     {
+        //Catch lateral input
         moveInputX = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
+        //Unused
         rotateInput = Input.GetAxis("Rotate");
 
+        //Calculate force direction
+        shipForceDir = new Vector2(moveInputX, moveInputY).normalized;
+
+        //Catch mouse input
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
+        //Catch mouse position
+        mousePosX = Input.mousePosition.x;
+        mousePosY = Input.mousePosition.y;
 
         //Mouse Aiming
-        Vector2 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
         Quaternion targetAngle = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetAngle, RotSpeed * Time.deltaTime);
 
-        //Rotate Ship - unused
-        if (rotateInput != 0)
+        //Calculate rotation engine effects
+        Vector3 shipScreenPoint = cam.WorldToScreenPoint(transform.position);
+        Vector3 rayPosScreen = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, shipScreenPoint.z));
+        angleAimingDifference = Vector2.SignedAngle((transform.position + transform.up)-transform.position,rayPosScreen - transform.position);
+
+        if (angleAimingDifference != 0)
         {
-            //transform.Rotate(0, 0, -rotateInput * RotSpeed * Time.deltaTime);
+            if(angleAimingDifference > 0)
+            {
+                RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, RightRotationEngine.localScale.y + 1, RightRotationEngine.localScale.z);
+                RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, Mathf.Clamp(RightRotationEngine.localScale.y, 0.6f, 3f), RightRotationEngine.localScale.z);
+            }
+            else if(angleAimingDifference < 0)
+            {
+                LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.y + 1, LeftRotationEngine.localScale.z);
+                LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x,Mathf.Clamp(LeftRotationEngine.localScale.y,0.6f,3f),LeftRotationEngine.localScale.z);
+            }
+        }
+        else
+        {
+            RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, RightRotationEngine.localScale.x, RightRotationEngine.localScale.z);
+            LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.z);
+        }
+
+        //Calculate lateral engine effects
+        //if(shipForceDir != Vector2.zero)
+        //{
+        Vector2 normVec = (transform.position + transform.up) - transform.position;
+        Vector2 normVec2 = (transform.position + transform.right) - transform.position;
+
+        print("Dot 1: " + Vector2.Dot(shipForceDir, normVec));
+        print("Dot 2: " + Vector2.Dot(shipForceDir,normVec2));
+        //}
+
+        float mainEngineDot = Vector2.Dot(shipForceDir, normVec);
+        float latEngineDot = Vector2.Dot(shipForceDir, normVec2);
+
+        foreach (Transform item in Engine.transform)
+        {
+            item.localScale = new Vector3(item.localScale.x, mainEngineDot * 6f, item.localScale.z);
+        }
+        foreach (Transform item in ReverseEngine.transform)
+        {
+            item.localScale = new Vector3(item.localScale.x, mainEngineDot * -6f, item.localScale.z);
+        }
+        foreach (Transform item in LeftLateralEngine.transform)
+        {
+            item.localScale = new Vector3(item.localScale.x, latEngineDot * 5f, item.localScale.z);
+        }
+        foreach (Transform item in RightLateralEngine.transform)
+        {
+            item.localScale = new Vector3(item.localScale.x, latEngineDot * -5f, item.localScale.z);
         }
 
         //Fire Rate
-        if(timeToNextShot <= 0)
+        if (timeToNextShot <= 0)
         {
             canShoot = true;
         }
@@ -94,22 +167,24 @@ public class Ship : MonoBehaviour
                 timeToNextShot = timeBetweenShots;
             }
         }
-
-        Engine.localScale = new Vector3(Engine.localScale.x,moveInputY * 1.5f,Engine.localScale.z);
-        EngineSide.localScale = new Vector3(Engine.localScale.x, moveInputX, Engine.localScale.z);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(shipForceDir != Vector2.zero)
+        {
+            rb.AddForce(shipForceDir * Force);
+        }
+
         //Apply forces from input
         if(moveInputY != 0)
         {
-            rb.AddForce(moveInputY * Vector2.up * Force);
+            //rb.AddForce(moveInputY * Vector2.up * Force);
         }
         if (moveInputX != 0)
         {
-            rb.AddForce(moveInputX * Vector2.right * Force);
+            //rb.AddForce(moveInputX * Vector2.right * Force);
         }
 
         //Max speed
@@ -130,17 +205,9 @@ public class Ship : MonoBehaviour
     void DestroyShip()
     {
         am.Play("ShipExplosion");
+        Instantiate(gm.ExplosionShip, transform.position, Quaternion.identity);
 
-        GameObject destroyedShip = Instantiate(DestroyedRoot, transform.position, transform.rotation);
-        foreach (Transform piece in destroyedShip.transform)
-        {
-            Vector2 directionOfPiece = (piece.position - transform.position).normalized;
-
-            Rigidbody2D pieceRb = piece.GetComponent<Rigidbody2D>();
-
-            pieceRb.AddForce(directionOfPiece * 100);
-            pieceRb.AddTorque(Random.Range(-200, 0));
-        }
+        Instantiate(DestroyedRoot, transform.position, transform.rotation);
 
         gm.ShipDestroyed();
         Destroy(gameObject);
