@@ -12,6 +12,7 @@ public class Ship : MonoBehaviour
     public Transform RightLateralEngine;
     public Transform LeftRotationEngine;
     public Transform RightRotationEngine;
+    public Transform FirePoint;
 
     public GameObject DestroyedRoot;
 
@@ -115,14 +116,8 @@ public class Ship : MonoBehaviour
         }
 
         //Calculate lateral engine effects
-        //if(shipForceDir != Vector2.zero)
-        //{
         Vector2 normVec = (transform.position + transform.up) - transform.position;
         Vector2 normVec2 = (transform.position + transform.right) - transform.position;
-
-        print("Dot 1: " + Vector2.Dot(shipForceDir, normVec));
-        print("Dot 2: " + Vector2.Dot(shipForceDir,normVec2));
-        //}
 
         float mainEngineDot = Vector2.Dot(shipForceDir, normVec);
         float latEngineDot = Vector2.Dot(shipForceDir, normVec2);
@@ -159,7 +154,7 @@ public class Ship : MonoBehaviour
         {
             if (canShoot)
             {
-                Bullet bulletInstance = Instantiate(bullet, transform.position, Quaternion.Euler(transform.up));
+                Bullet bulletInstance = Instantiate(bullet, FirePoint.position, Quaternion.Euler(transform.up));
                 bulletInstance.dir = transform.up;
                 aSource.Play();
 
