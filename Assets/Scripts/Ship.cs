@@ -96,6 +96,8 @@ public class Ship : MonoBehaviour
         Vector3 rayPosScreen = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, shipScreenPoint.z));
         angleAimingDifference = Vector2.SignedAngle((transform.position + transform.up)-transform.position,rayPosScreen - transform.position);
 
+        print(Vector2.Angle((transform.position + transform.up) - transform.position, rayPosScreen - transform.position));
+
         if (angleAimingDifference != 0)
         {
             if(angleAimingDifference > 0)
