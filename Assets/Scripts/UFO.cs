@@ -36,7 +36,7 @@ public class UFO : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Bullet newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-        newBullet.dir = new Vector2(Mathf.Sin(Mathf.Deg2Rad * Random.Range(-180, 180)),Mathf.Cos(Mathf.Deg2Rad * Random.Range(-180, 180))).normalized;
+        //newBullet.dir = new Vector2(Mathf.Sin(Mathf.Deg2Rad * Random.Range(-180, 180)),Mathf.Cos(Mathf.Deg2Rad * Random.Range(-180, 180))).normalized;
         StartCoroutine(Shoot());
     }
 

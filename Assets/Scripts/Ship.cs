@@ -69,6 +69,9 @@ public class Ship : MonoBehaviour
 
     private void Update()
     {
+        print("Transform: " + transform.up);
+        print("TransformDirection: " + transform.TransformDirection(transform.up));
+
         //Catch lateral input
         moveInputX = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
@@ -95,8 +98,6 @@ public class Ship : MonoBehaviour
         Vector3 shipScreenPoint = cam.WorldToScreenPoint(transform.position);
         Vector3 rayPosScreen = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, shipScreenPoint.z));
         angleAimingDifference = Vector2.SignedAngle((transform.position + transform.up)-transform.position,rayPosScreen - transform.position);
-
-        print(Vector2.Angle((transform.position + transform.up) - transform.position, rayPosScreen - transform.position));
 
         if (angleAimingDifference != 0)
         {
@@ -156,8 +157,9 @@ public class Ship : MonoBehaviour
         {
             if (canShoot)
             {
-                Bullet bulletInstance = Instantiate(bullet, FirePoint.position, Quaternion.Euler(transform.up));
-                bulletInstance.dir = transform.up;
+                Quaternion bulletRot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+                Bullet bulletInstance = Instantiate(bullet, FirePoint.position, bulletRot);
+                //bulletInstance.dir = transform.up;
                 aSource.Play();
 
                 canShoot = false;

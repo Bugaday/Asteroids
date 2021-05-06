@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 4857547331821634352}
   - component: {fileID: 7333491940662333768}
   - component: {fileID: -1558382365333939957}
+  - component: {fileID: 8534921003909466844}
   m_Layer: 11
   m_Name: Asteroid
   m_TagString: Untagged
@@ -147,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 6292140713633315025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1627329980975891998}
   - {fileID: 5590114655224875132}
@@ -200,6 +201,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
+--- !u!70 &8534921003909466844
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292140713633315025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 16, y: 16}
+  m_Direction: 0
 --- !u!1 &7674074105704645242
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +228,6 @@ GameObject:
   - component: {fileID: 1627329980975891998}
   - component: {fileID: 8920592734144947292}
   - component: {fileID: 6699331009869517461}
-  - component: {fileID: 6552266315798262045}
   m_Layer: 11
   m_Name: 3D
   m_TagString: Untagged
@@ -228,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 7674074105704645242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 6292140713633315027}
   m_RootOrder: 0
@@ -282,19 +298,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!58 &6552266315798262045
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7674074105704645242}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
