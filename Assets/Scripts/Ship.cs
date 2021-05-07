@@ -71,6 +71,9 @@ public class Ship : MonoBehaviour
     {
         print("Transform: " + transform.up);
         print("TransformDirection: " + transform.TransformDirection(transform.up));
+        print("TransformInvDirection: " + transform.InverseTransformDirection(transform.up));
+        print("TransformPoint: " + transform.TransformPoint(transform.up));
+        print("TransformPoint: " + transform.TransformVector(transform.up));
 
         //Catch lateral input
         moveInputX = Input.GetAxis("Horizontal");

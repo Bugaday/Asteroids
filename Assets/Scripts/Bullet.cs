@@ -13,6 +13,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float angle = transform.eulerAngles.z;
+        Vector3 dirLine = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad),0).normalized;
+        print(transform.up);
+        print("Dir: " + dirLine);
+
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.up) * 10, Color.red);
+
         transform.Translate(Vector3.up * speed * Time.deltaTime);
         timeCreated += Time.deltaTime;
 
