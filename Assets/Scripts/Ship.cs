@@ -69,11 +69,13 @@ public class Ship : MonoBehaviour
 
     private void Update()
     {
+        /*
         print("Transform: " + transform.up);
         print("TransformDirection: " + transform.TransformDirection(transform.up));
         print("TransformInvDirection: " + transform.InverseTransformDirection(transform.up));
         print("TransformPoint: " + transform.TransformPoint(transform.up));
         print("TransformPoint: " + transform.TransformVector(transform.up));
+        */
 
         //Catch lateral input
         moveInputX = Input.GetAxis("Horizontal");
@@ -160,9 +162,20 @@ public class Ship : MonoBehaviour
         {
             if (canShoot)
             {
+
                 Quaternion bulletRot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
                 Bullet bulletInstance = Instantiate(bullet, FirePoint.position, bulletRot);
                 //bulletInstance.dir = transform.up;
+
+                float bulletAngle = bulletInstance.transform.eulerAngles.z + 90;
+                Vector3 dirLine = new Vector3(Mathf.Cos(bulletAngle * Mathf.Deg2Rad), Mathf.Sin(bulletAngle * Mathf.Deg2Rad), 0).normalized;
+                print("Ship Z rot: " + bulletInstance.transform.eulerAngles.z);
+                print("Bullet Z rot: " + bulletInstance.transform.eulerAngles.z);
+                print("Dir line: " + dirLine);
+                print("Bullet transform up: " + bullet.transform.transform.TransformDirection(bullet.transform.up));
+
+                //Debug.DrawRay(bulletInstance.transform.position, dirLine * 10, Color.red);
+
                 aSource.Play();
 
                 canShoot = false;
