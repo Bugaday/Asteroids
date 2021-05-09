@@ -40,19 +40,26 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        NewLevel();
+        StartCoroutine(NewLevel());
         StartCoroutine(CheckLevelOver());
     }
 
-    private void NewLevel()
+    void CamShake()
     {
+
+    }
+
+    IEnumerator NewLevel()
+    {
+        yield return new WaitForSeconds(2);
         for (int i = 0; i < AsteroidsToSpawn; i++)
         {
             Vector3 randPos = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0);
             float randRot = Random.Range(-180, 180);
-
             Asteroid newAsteroid = Instantiate(asteroidTypes[Random.Range(0, asteroidTypes.Length - 1)], randPos, Quaternion.Euler(0, 0, randRot));
         }
+
+
 
         StartCoroutine(CurrentShip.StartInvincible());
     }
@@ -106,7 +113,7 @@ public class GameManager : MonoBehaviour
         if (asteroidsLeft <= 0)
         {
             AsteroidsToSpawn++;
-            NewLevel();
+            StartCoroutine(NewLevel());
         }
         yield return new WaitForSeconds(2);
         StartCoroutine(CheckLevelOver());

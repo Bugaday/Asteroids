@@ -69,7 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  dir: {x: 0, y: 0}
   TimeToDie: 3
 --- !u!70 &2444664707198113866
 CapsuleCollider2D:

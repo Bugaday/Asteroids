@@ -8,6 +8,7 @@ public class Asteroid : MonoBehaviour
     UIManager um;
     AudioManager am;
     CapsuleCollider2D capsuleCol;
+    Camera cam;
 
     public int stage = 1;
     int chunks = 2;
@@ -23,6 +24,7 @@ public class Asteroid : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         um = FindObjectOfType<UIManager>();
         am = FindObjectOfType<AudioManager>();
+        cam = Camera.main;
 
         Vector2 randDir = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)).normalized;
         GetComponent<Rigidbody2D>().AddForce(randDir * 600);
@@ -57,10 +59,9 @@ public class Asteroid : MonoBehaviour
                 newChunk.transform.GetChild(0).localScale /= 2;
                 newChunk.capsuleCol.size /= 2;
 
-                float newRandRot = Random.Range(collided.transform.eulerAngles.z - 60, collided.transform.eulerAngles.z + 60);
-
-                float xDir = Mathf.Sin(newRandRot * Mathf.Deg2Rad);
-                float yDir = Mathf.Cos(newRandRot * Mathf.Deg2Rad);
+                float newRandRot = Random.Range(collided.transform.eulerAngles.z + 30, collided.transform.eulerAngles.z + 150);
+                float xDir = Mathf.Cos(newRandRot * Mathf.Deg2Rad);
+                float yDir = Mathf.Sin(newRandRot * Mathf.Deg2Rad);
 
                 Vector2 newChunkDir =  new Vector2(xDir,yDir);
 
@@ -69,7 +70,6 @@ public class Asteroid : MonoBehaviour
 
 
             }
-
             DestroyAsteroid();
         }
     }
@@ -78,6 +78,8 @@ public class Asteroid : MonoBehaviour
     {
         Instantiate(gm.ExplosionAsteroid[stage-1], transform.position, Quaternion.identity);
         am.Play("Explosion");
+        cam.GetComponent<CamShake>().ShakeStrength = 1 / (float)stage;
+        cam.GetComponent<CamShake>().camShakeActive = true;
         Destroy(gameObject);
     }
 }

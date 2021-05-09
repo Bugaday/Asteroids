@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    private const float deadZoneRotation = 2.0f;
     public Bullet bullet;
     public GameObject SpritesRoot;
     public Transform Engine;
@@ -13,7 +14,7 @@ public class Ship : MonoBehaviour
     public Transform LeftRotationEngine;
     public Transform RightRotationEngine;
     public Transform FirePoint;
-
+    public GameObject Forcefield;
     public GameObject DestroyedRoot;
 
     //Components
@@ -69,14 +70,6 @@ public class Ship : MonoBehaviour
 
     private void Update()
     {
-        /*
-        print("Transform: " + transform.up);
-        print("TransformDirection: " + transform.TransformDirection(transform.up));
-        print("TransformInvDirection: " + transform.InverseTransformDirection(transform.up));
-        print("TransformPoint: " + transform.TransformPoint(transform.up));
-        print("TransformPoint: " + transform.TransformVector(transform.up));
-        */
-
         //Catch lateral input
         moveInputX = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
@@ -93,25 +86,30 @@ public class Ship : MonoBehaviour
         mousePosX = Input.mousePosition.x;
         mousePosY = Input.mousePosition.y;
 
+        //Calculate angle difference between mouse and ship's up direction
+        Vector3 shipScreenPoint = cam.WorldToScreenPoint(transform.position);
+        Vector3 mouseWorldPoint = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, shipScreenPoint.z));
+        angleAimingDifference = Vector2.SignedAngle(transform.up, mouseWorldPoint - transform.position);
+
         //Mouse Aiming
-        Vector2 dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
+        Vector2 dir = (Input.mousePosition - cam.WorldToScreenPoint(transform.position)).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
         Quaternion targetAngle = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetAngle, RotSpeed * Time.deltaTime);
 
-        //Calculate rotation engine effects
-        Vector3 shipScreenPoint = cam.WorldToScreenPoint(transform.position);
-        Vector3 rayPosScreen = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, shipScreenPoint.z));
-        angleAimingDifference = Vector2.SignedAngle((transform.position + transform.up)-transform.position,rayPosScreen - transform.position);
-
-        if (angleAimingDifference != 0)
+        //Apply deadzone of 1 degree
+        if (angleAimingDifference > deadZoneRotation || angleAimingDifference < -deadZoneRotation)
         {
-            if(angleAimingDifference > 0)
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetAngle, RotSpeed * Time.deltaTime);
+        }
+
+        if (angleAimingDifference > deadZoneRotation || angleAimingDifference < -deadZoneRotation)
+        {
+            if(angleAimingDifference > 1)
             {
                 RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, RightRotationEngine.localScale.y + 1, RightRotationEngine.localScale.z);
                 RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, Mathf.Clamp(RightRotationEngine.localScale.y, 0.6f, 3f), RightRotationEngine.localScale.z);
             }
-            else if(angleAimingDifference < 0)
+            else if(angleAimingDifference < -1)
             {
                 LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.y + 1, LeftRotationEngine.localScale.z);
                 LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x,Mathf.Clamp(LeftRotationEngine.localScale.y,0.6f,3f),LeftRotationEngine.localScale.z);
@@ -132,19 +130,23 @@ public class Ship : MonoBehaviour
 
         foreach (Transform item in Engine.transform)
         {
-            item.localScale = new Vector3(item.localScale.x, mainEngineDot * 6f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x,mainEngineDot * 6f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
         foreach (Transform item in ReverseEngine.transform)
         {
             item.localScale = new Vector3(item.localScale.x, mainEngineDot * -6f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
         foreach (Transform item in LeftLateralEngine.transform)
         {
             item.localScale = new Vector3(item.localScale.x, latEngineDot * 5f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
         foreach (Transform item in RightLateralEngine.transform)
         {
             item.localScale = new Vector3(item.localScale.x, latEngineDot * -5f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y,0,6), item.localScale.z);
         }
 
         //Fire Rate
@@ -164,17 +166,7 @@ public class Ship : MonoBehaviour
             {
 
                 Quaternion bulletRot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
-                Bullet bulletInstance = Instantiate(bullet, FirePoint.position, bulletRot);
-                //bulletInstance.dir = transform.up;
-
-                float bulletAngle = bulletInstance.transform.eulerAngles.z + 90;
-                Vector3 dirLine = new Vector3(Mathf.Cos(bulletAngle * Mathf.Deg2Rad), Mathf.Sin(bulletAngle * Mathf.Deg2Rad), 0).normalized;
-                print("Ship Z rot: " + bulletInstance.transform.eulerAngles.z);
-                print("Bullet Z rot: " + bulletInstance.transform.eulerAngles.z);
-                print("Dir line: " + dirLine);
-                print("Bullet transform up: " + bullet.transform.transform.TransformDirection(bullet.transform.up));
-
-                //Debug.DrawRay(bulletInstance.transform.position, dirLine * 10, Color.red);
+                Instantiate(bullet, FirePoint.position, bulletRot);
 
                 aSource.Play();
 
@@ -231,10 +223,11 @@ public class Ship : MonoBehaviour
     public IEnumerator StartInvincible()
     {
         damageable = false;
-        //anim.Play();
+        Forcefield.SetActive(true);
+        anim.Play();
         yield return new WaitForSeconds(2);
-        //anim.Stop();
-        //SpritesRoot.SetActive(true);
+        anim.Stop();
+        Forcefield.SetActive(false);
         damageable = true;
     }
 
