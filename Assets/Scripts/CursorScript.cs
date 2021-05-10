@@ -17,8 +17,6 @@ public class CursorScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        print(cam.ScreenToWorldPoint(Input.mousePosition).x);
-
         float mouseX = Input.mousePosition.x;
         float mouseY = Input.mousePosition.y;
 

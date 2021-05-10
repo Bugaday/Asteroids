@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public Ship NewShip;
     public UFO ufo;
 
+    public GameObject HyperSpaceEffect;
+
     public GameObject ExplosionShip;
     public List<GameObject> ExplosionAsteroid;
 
@@ -44,11 +46,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CheckLevelOver());
     }
 
-    void CamShake()
-    {
-
-    }
-
     IEnumerator NewLevel()
     {
         yield return new WaitForSeconds(2);
@@ -58,9 +55,8 @@ public class GameManager : MonoBehaviour
             float randRot = Random.Range(-180, 180);
             Asteroid newAsteroid = Instantiate(asteroidTypes[Random.Range(0, asteroidTypes.Length - 1)], randPos, Quaternion.Euler(0, 0, randRot));
         }
-
-
-
+        StartCoroutine(HyperSpaceIn(Vector3.zero));
+        yield return new WaitForSeconds(2);
         StartCoroutine(CurrentShip.StartInvincible());
     }
 
@@ -85,7 +81,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(RespawnShip());
+            StartCoroutine(HyperSpaceIn(Vector3.zero));
+            StartCoroutine(CurrentShip.StartInvincible());
         }
     }
 
@@ -107,11 +104,13 @@ public class GameManager : MonoBehaviour
         um.UpdateScore(Score);
     }
 
+    //Recursive function that's constantly checking how many asteroids are left
     IEnumerator CheckLevelOver()
     {
         int asteroidsLeft = FindObjectsOfType<Asteroid>().Length;
         if (asteroidsLeft <= 0)
         {
+            HyperSpaceOut();
             AsteroidsToSpawn++;
             StartCoroutine(NewLevel());
         }
@@ -119,11 +118,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(CheckLevelOver());
     }
 
-    IEnumerator RespawnShip()
+    void HyperSpaceOut()
     {
-        yield return new WaitForSeconds(2);
-        CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
-        StartCoroutine(CurrentShip.StartInvincible());
+        Destroy(CurrentShip);
+        Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
+    }
+
+    IEnumerator HyperSpaceIn(Vector3 newPosition)
+    {
+        Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1);
+        CurrentShip = Instantiate(NewShip, newPosition, Quaternion.identity);
     }
 
     IEnumerator GameOver()

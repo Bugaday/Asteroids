@@ -15,6 +15,7 @@ public class Ship : MonoBehaviour
     public Transform RightRotationEngine;
     public Transform FirePoint;
     public GameObject Forcefield;
+    public GameObject Rendering;
     public GameObject DestroyedRoot;
 
     //Components
@@ -73,8 +74,6 @@ public class Ship : MonoBehaviour
         //Catch lateral input
         moveInputX = Input.GetAxis("Horizontal");
         moveInputY = Input.GetAxis("Vertical");
-        //Unused
-        rotateInput = Input.GetAxis("Rotate");
 
         //Calculate force direction
         shipForceDir = new Vector2(moveInputX, moveInputY).normalized;
@@ -230,6 +229,5 @@ public class Ship : MonoBehaviour
         Forcefield.SetActive(false);
         damageable = true;
     }
-
 
 }
