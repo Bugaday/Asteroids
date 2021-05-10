@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        Cursor.visible = false;
         StartCoroutine(NewLevel());
         StartCoroutine(CheckLevelOver());
     }

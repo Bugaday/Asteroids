@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cursor : MonoBehaviour
+public class CursorScript : MonoBehaviour
 {
 
     Camera cam;
@@ -26,9 +26,9 @@ public class Cursor : MonoBehaviour
 
         Vector3 nearClip = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cam.nearClipPlane));
         Vector3 farClip = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cam.farClipPlane));
-        point = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 200f));
+        point = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 90f));
 
-        transform.position = new Vector3(nearClip.x,nearClip.y,0);
+        transform.position = point;
     }
 
     private void OnGUI()
