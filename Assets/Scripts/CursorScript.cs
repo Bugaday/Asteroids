@@ -22,13 +22,15 @@ public class CursorScript : MonoBehaviour
 
         mousePos = Input.mousePosition;
 
-        Vector3 nearClip = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cam.nearClipPlane));
-        Vector3 farClip = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cam.farClipPlane));
-        point = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, 90f));
+        //Vector3 nearClip = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cam.nearClipPlane));
+        //Vector3 farClip = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, cam.farClipPlane));
+        point = cam.ScreenToWorldPoint(new Vector3(mouseX, mouseY, (cam.transform.position.z * -1) - 10));
 
         transform.position = point;
+        transform.rotation = Quaternion.identity;
     }
 
+    /*
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(20, 100, 250, 120));
@@ -37,4 +39,5 @@ public class CursorScript : MonoBehaviour
         GUILayout.Label("World position: " + point.ToString("F3"));
         GUILayout.EndArea();
     }
+    */
 }

@@ -31,7 +31,6 @@ public class Ship : MonoBehaviour
     float mouseY = 0;
     float mousePosX;
     float mousePosY;
-    float rotateInput = 0;
 
     //References
     GameManager gm;
@@ -212,7 +211,8 @@ public class Ship : MonoBehaviour
     {
         am.Play("ShipExplosion");
         Instantiate(gm.ExplosionShip, transform.position, Quaternion.identity);
-
+        cam.GetComponent<CamShake>().ShakeStrength = 1.5f;
+        cam.GetComponent<CamShake>().camShakeActive = true;
         Instantiate(DestroyedRoot, transform.position, transform.rotation);
 
         gm.ShipDestroyed();

@@ -41,7 +41,7 @@ public class Asteroid : MonoBehaviour
 
     void DestroyAndBreakup(GameObject collided)
     {
-        gm.AddScore(10);
+        gm.AddScore(stage * 10);
 
         if (stage >= 3)
         {

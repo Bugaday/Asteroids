@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.5f1 (8095aa901b9b) revision 8426922'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19041.928; Version 2004; 64bit' Language: 'en' Physical Memory: 32675 MB
+OS: 'Windows 10 Home; OS build 19041.985; Version 2004; 64bit' Language: 'en' Physical Memory: 32675 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +15,11 @@ E:/GameDev/Unity/Asteroids
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51140
+61655
 Successfully changed project path to: E:/GameDev/Unity/Asteroids
 E:/GameDev/Unity/Asteroids
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 73.69 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 69.80 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.5f1 (8095aa901b9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -36,537 +36,757 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56396
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56432
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003817 seconds.
+Registered in 0.003989 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 73.17 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 66.82 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.477 seconds
+- Completed reload, in  1.418 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002520 seconds.
+Registered in 0.002277 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 72.93 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 72.43 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.160 seconds
+- Completed reload, in  1.144 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2983 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 143.1 MB.
-System memory in use after: 143.3 MB.
+System memory in use before: 143.4 MB.
+System memory in use after: 143.6 MB.
 
 Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3445.
-Total: 2.411100 ms (FindLiveObjects: 0.287900 ms CreateObjectMapping: 0.141500 ms MarkObjects: 1.900300 ms  DeleteObjects: 0.080500 ms)
+Total: 2.738900 ms (FindLiveObjects: 0.310900 ms CreateObjectMapping: 0.387100 ms MarkObjects: 1.959800 ms  DeleteObjects: 0.080400 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/PolygonSciFiSpace/Materials/FX_Materials/FX_HUD_02.mat
-  artifactKey: Guid(ed479f6af7150af4785855060608e0ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonSciFiSpace/Materials/FX_Materials/FX_HUD_02.mat using Guid(ed479f6af7150af4785855060608e0ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee4245248dd942d10fbbc9d4e34cff8c') in 0.328238 seconds
-  Import took 0.333957 seconds .
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_05.fbx
+  artifactKey: Guid(12f201fb324654b45ab869ef797a5e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_05.fbx using Guid(12f201fb324654b45ab869ef797a5e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c4fb020a7c61367a51eca51b25a150b') in 0.265888 seconds
+  Import took 0.271758 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 531.456968 seconds.
-  path: Assets/PolygonSciFiSpace/Prefabs/FX
-  artifactKey: Guid(30218a26fb59d0f4bb1bd1f752e1b496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonSciFiSpace/Prefabs/FX using Guid(30218a26fb59d0f4bb1bd1f752e1b496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f0c7ec8fa39c42e3f4c75e76b0c1088') in 0.002746 seconds
-  Import took 0.009580 seconds .
+  Time since last request: 0.000204 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Tank_01.fbx
+  artifactKey: Guid(5e9366115682a0347ac8a445dc72619b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Tank_01.fbx using Guid(5e9366115682a0347ac8a445dc72619b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1d1f033195d412459451bbd059d6b91') in 0.012677 seconds
+  Import took 0.017635 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.011563 seconds.
-  path: Assets/PolygonSciFiSpace/Prefabs/FX
-  artifactKey: Guid(30218a26fb59d0f4bb1bd1f752e1b496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonSciFiSpace/Prefabs/FX using Guid(30218a26fb59d0f4bb1bd1f752e1b496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f0c7ec8fa39c42e3f4c75e76b0c1088') in 0.002153 seconds
-  Import took 0.007167 seconds .
+  Time since last request: 0.000182 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodTray_02.fbx
+  artifactKey: Guid(0461d483a32f32d45bcca232fd70538a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodTray_02.fbx using Guid(0461d483a32f32d45bcca232fd70538a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c50a7a42e92592ff0554defe2e1772dc') in 0.012365 seconds
+  Import took 0.017057 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 13.653260 seconds.
-  path: Assets/Scripts/Ship.cs
-  artifactKey: Guid(6f2e2f2fad1f4804e95f8ab0348528bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Ship.cs using Guid(6f2e2f2fad1f4804e95f8ab0348528bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c693b87fb2b677f54afd954b4799e6') in 0.011303 seconds
-  Import took 0.017913 seconds .
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_010.fbx
+  artifactKey: Guid(b9476953987365c428c7d2adcb01fd30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_010.fbx using Guid(b9476953987365c428c7d2adcb01fd30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89be805ffb39fbb552e5ef7da4fa12af') in 0.012325 seconds
+  Import took 0.017191 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.004188 seconds.
-  path: Assets/Scripts/Ship.cs
-  artifactKey: Guid(6f2e2f2fad1f4804e95f8ab0348528bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Ship.cs using Guid(6f2e2f2fad1f4804e95f8ab0348528bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c693b87fb2b677f54afd954b4799e6') in 0.002570 seconds
-  Import took 0.007971 seconds .
+  Time since last request: 0.000189 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_EscapePod_Hatch_Small_01.fbx
+  artifactKey: Guid(85dd55d6813834349bf6aa683464ac1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_EscapePod_Hatch_Small_01.fbx using Guid(85dd55d6813834349bf6aa683464ac1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86caab0be22b1cff0d7461f2694d6953') in 0.012564 seconds
+  Import took 0.017776 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Env_PlanetRings_01.fbx
+  artifactKey: Guid(36d844e98c1dacc4a9f9754e1494a72d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Env_PlanetRings_01.fbx using Guid(36d844e98c1dacc4a9f9754e1494a72d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab9b28c621c82e935e53f72e0fa9d66b') in 0.011658 seconds
+  Import took 0.016964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_011.fbx
+  artifactKey: Guid(4d62bc3f232d6f248816fbc40620cb70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_011.fbx using Guid(4d62bc3f232d6f248816fbc40620cb70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1605a93d8f045d13cb6c89f01e1776ab') in 0.012112 seconds
+  Import took 0.016829 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Engine_Construction_01.fbx
+  artifactKey: Guid(9db39f6fc0199fd4db24bfab80e66f15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Engine_Construction_01.fbx using Guid(9db39f6fc0199fd4db24bfab80e66f15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9f83d30eae04478acaef9914912c411') in 0.012810 seconds
+  Import took 0.017762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_EscapePod_Hatch_Large_01.fbx
+  artifactKey: Guid(30e13cd53050c764985796b04f357e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_EscapePod_Hatch_Large_01.fbx using Guid(30e13cd53050c764985796b04f357e39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd46f459b09ecc3d19f9b0eecf290890e') in 0.024019 seconds
+  Import took 0.029143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wirebox_01.fbx
+  artifactKey: Guid(2a7192164cc4e234593e48316429f256) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wirebox_01.fbx using Guid(2a7192164cc4e234593e48316429f256) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08d7d6d4e965ea29826cb14a52279550') in 0.011180 seconds
+  Import took 0.016001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_Frame_02.fbx
+  artifactKey: Guid(0880d24e725780f409826c4d309fa3c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_Frame_02.fbx using Guid(0880d24e725780f409826c4d309fa3c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03b80db2158361aee0973963d214d11a') in 0.017637 seconds
+  Import took 0.022418 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_016.fbx
+  artifactKey: Guid(922eb29c359ce854998e17883bcb7910) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_016.fbx using Guid(922eb29c359ce854998e17883bcb7910) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e509cbf308f67d1fd6d61440037c879d') in 0.012186 seconds
+  Import took 0.017107 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Sweepo_01.fbx
+  artifactKey: Guid(d306bb9daa743184194ee1fe320ef58b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Sweepo_01.fbx using Guid(d306bb9daa743184194ee1fe320ef58b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afb8f69a38ba24b8c11b153348148b58') in 0.030359 seconds
+  Import took 0.035243 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_WarpGate_Outer_01.fbx
+  artifactKey: Guid(12ab38a43d28b974ca4f578f147b63b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_WarpGate_Outer_01.fbx using Guid(12ab38a43d28b974ca4f578f147b63b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fb1245058bf64e03671dfa9d8c09243') in 0.016948 seconds
+  Import took 0.022056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Wep_Pistol_01.fbx
+  artifactKey: Guid(b4ab5a0c8e9afaf4cac0baaee1cd20a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Wep_Pistol_01.fbx using Guid(b4ab5a0c8e9afaf4cac0baaee1cd20a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22efd222b8fa62761b48fa80524a6004') in 0.017285 seconds
+  Import took 0.022053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_03.fbx
+  artifactKey: Guid(aa344529e30db7e4c9aa815ab03e884e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_03.fbx using Guid(aa344529e30db7e4c9aa815ab03e884e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dda7b204fe6dad6f36494da06b557e60') in 0.012015 seconds
+  Import took 0.016765 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_02.fbx
+  artifactKey: Guid(25d62e2695c535f4b9eafdf0e368e3d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_02.fbx using Guid(25d62e2695c535f4b9eafdf0e368e3d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd8ed9d9547a9873ef0d8fb47c1f7184') in 0.011527 seconds
+  Import took 0.016240 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_Frame_03.fbx
+  artifactKey: Guid(e38e5dd48e46ce94cbb7f41df24acb5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_Frame_03.fbx using Guid(e38e5dd48e46ce94cbb7f41df24acb5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09b7957045385b89ee162fa1a6b672a6') in 0.018983 seconds
+  Import took 0.023816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_012.fbx
+  artifactKey: Guid(f87d31f6a6f8d014681390926dd57470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_012.fbx using Guid(f87d31f6a6f8d014681390926dd57470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec4af827498242e2db82e7ddbb9a9109') in 0.011819 seconds
+  Import took 0.016712 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_03.fbx
+  artifactKey: Guid(30c92b3651c46564abd07458ee8c2ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_03.fbx using Guid(30c92b3651c46564abd07458ee8c2ad8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e752627af1e32dcc80e32ce727629774') in 0.012582 seconds
+  Import took 0.017605 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_015.fbx
+  artifactKey: Guid(ed5c3a00a8e995048a9da05c00905b56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_015.fbx using Guid(ed5c3a00a8e995048a9da05c00905b56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a07758421111244992968e15c72c3ac4') in 0.011299 seconds
+  Import took 0.015934 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_04.fbx
+  artifactKey: Guid(16e23ea5db74b024cac424c77e2c738c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_04.fbx using Guid(16e23ea5db74b024cac424c77e2c738c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80314d1ede1f4db342f28a35ea538e18') in 0.011420 seconds
+  Import took 0.016300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_01.fbx
+  artifactKey: Guid(b49455da430a49b4ba9ab727f2ff9e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_01.fbx using Guid(b49455da430a49b4ba9ab727f2ff9e9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fee45239df3aaa9cf5a5c09e59b2381') in 0.018014 seconds
+  Import took 0.023238 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_01.fbx
+  artifactKey: Guid(034e87a89de26d44c8adfd36d92f2a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_01.fbx using Guid(034e87a89de26d44c8adfd36d92f2a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '302e11c74d5ccb65d49f60d8eb028396') in 0.011367 seconds
+  Import took 0.016160 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodTray_03.fbx
+  artifactKey: Guid(35a2328c2cccab44ea366540038f82a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodTray_03.fbx using Guid(35a2328c2cccab44ea366540038f82a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ede9c3fb89733f755982698deabf617c') in 0.011716 seconds
+  Import took 0.016578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Wep_Rifle_01.fbx
+  artifactKey: Guid(387df2d7750e6ab4698e1e62a012af82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Wep_Rifle_01.fbx using Guid(387df2d7750e6ab4698e1e62a012af82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c218c51fc3d23cf8b2d5d54015c00a6b') in 0.022309 seconds
+  Import took 0.027222 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_01.fbx
+  artifactKey: Guid(1af531419cebb26479e64ecd379b913c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodPacket_01.fbx using Guid(1af531419cebb26479e64ecd379b913c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b72c64086c048227e329010a1e56a6b1') in 0.011149 seconds
+  Import took 0.016559 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_02.fbx
+  artifactKey: Guid(a7b6c138e7ccc384eb3b4c60852168b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_02.fbx using Guid(a7b6c138e7ccc384eb3b4c60852168b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c637a0158c71fea0a9cce5fa46adc85') in 0.011333 seconds
+  Import took 0.016259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Tank_02.fbx
+  artifactKey: Guid(d7653e9f5b1713847b6f1196f673459b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Tank_02.fbx using Guid(d7653e9f5b1713847b6f1196f673459b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4d35dafc98ec2fcdd4e7ca0144389c3') in 0.011769 seconds
+  Import took 0.016558 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_WarpGate_Inner_01.fbx
+  artifactKey: Guid(508db200b6337654985a0a5a8e2ab568) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_WarpGate_Inner_01.fbx using Guid(508db200b6337654985a0a5a8e2ab568) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a01d3b890d3d0881c2e34c3ce858047') in 0.014785 seconds
+  Import took 0.019390 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_SynCola_02.fbx
+  artifactKey: Guid(dfde6b9da244d514b858fc5dc2668e74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_SynCola_02.fbx using Guid(dfde6b9da244d514b858fc5dc2668e74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '361f5bc1e819a03c848bc59378abf3a5') in 0.010851 seconds
+  Import took 0.015640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_04.fbx
+  artifactKey: Guid(260cb443e33bc4649bc24e7bc7e2b262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Wire_04.fbx using Guid(260cb443e33bc4649bc24e7bc7e2b262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b19b876b54f52b114228198647ee0a6f') in 0.012569 seconds
+  Import took 0.017761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_014.fbx
+  artifactKey: Guid(51099d27f4608d34196d4c566f1bff08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_014.fbx using Guid(51099d27f4608d34196d4c566f1bff08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e4bcbca97911234de1739961c6645c') in 0.011447 seconds
+  Import took 0.016370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_FoodTray_01.fbx
+  artifactKey: Guid(8ed90555e64c3614696c64421211334b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_FoodTray_01.fbx using Guid(8ed90555e64c3614696c64421211334b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6757bb6d836fb470ada4065b7aa6cd6c') in 0.011213 seconds
+  Import took 0.015956 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_WarpGate_Glow_01.fbx
+  artifactKey: Guid(4b84679c2cc7cde459cffd80a68d0151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_WarpGate_Glow_01.fbx using Guid(4b84679c2cc7cde459cffd80a68d0151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8df0ecc22240bbb3ee861c35edc1954a') in 0.011899 seconds
+  Import took 0.016750 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_08.fbx
+  artifactKey: Guid(8201d75533b110843b474496f66bb769) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_08.fbx using Guid(8201d75533b110843b474496f66bb769) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca6c304df04777284039efe0d33c7cbc') in 0.011401 seconds
+  Import took 0.016017 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_013.fbx
+  artifactKey: Guid(589203433f4154a4ea6cc11f9ed9be52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_013.fbx using Guid(589203433f4154a4ea6cc11f9ed9be52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '837039da86d7c5c0c0ebe89003e965c5') in 0.011610 seconds
+  Import took 0.016279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_09.fbx
+  artifactKey: Guid(cb2516ec4259e3d479283330e6b82766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_Part_Wing_09.fbx using Guid(cb2516ec4259e3d479283330e6b82766) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'def94a264449f2a3f80c7e36888f0d58') in 0.011274 seconds
+  Import took 0.016297 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_Frame_01.fbx
+  artifactKey: Guid(c7077a9713045e3469a234965d5373c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Veh_POV_Cockpit_Frame_01.fbx using Guid(c7077a9713045e3469a234965d5373c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbda67bc298d90e0dfa0b88f2a928767') in 0.016431 seconds
+  Import took 0.021482 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_EnergyPort_01.fbx
+  artifactKey: Guid(7a5b535ee3aa9a146ba4cefa2c1198dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_EnergyPort_01.fbx using Guid(7a5b535ee3aa9a146ba4cefa2c1198dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f02640b11dcaffd423d5237ceebd2679') in 0.012841 seconds
+  Import took 0.017818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Vent_01.fbx
+  artifactKey: Guid(84781205c1698ae48a26d5ee863c5f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Detail_Vent_01.fbx using Guid(84781205c1698ae48a26d5ee863c5f1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc3112bbdee6387dcd83b53eaaa7f369') in 0.011808 seconds
+  Import took 0.016507 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 101.526756 seconds.
+  path: Assets/Materials/FX_SphereGlow-custom.mat
+  artifactKey: Guid(9d98281e5344e314caf61680b73cbb5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/FX_SphereGlow-custom.mat using Guid(9d98281e5344e314caf61680b73cbb5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07a4b5e6c61bf05bb14f02e36ea306d6') in 0.101351 seconds
+  Import took 0.109516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 223.353660 seconds.
+  path: Assets/Scripts/GameManager.cs
+  artifactKey: Guid(9a3e6cca3f0a0d7438489018c7ddfd54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GameManager.cs using Guid(9a3e6cca3f0a0d7438489018c7ddfd54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3542c9ce677ec34991b781df4f4b1869') in 0.008938 seconds
+  Import took 0.015402 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002477 seconds.
+Registered in 0.002522 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.071 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.3 MB.
-System memory in use after: 139.6 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3526.
-Total: 2.472100 ms (FindLiveObjects: 0.285300 ms CreateObjectMapping: 0.131100 ms MarkObjects: 2.037400 ms  DeleteObjects: 0.016800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002455 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.03 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.077 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.4 MB.
-System memory in use after: 139.6 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3529.
-Total: 2.743400 ms (FindLiveObjects: 0.283600 ms CreateObjectMapping: 0.138400 ms MarkObjects: 2.301300 ms  DeleteObjects: 0.019100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002492 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.095 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.4 MB.
-System memory in use after: 139.6 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3532.
-Total: 3.722100 ms (FindLiveObjects: 0.409100 ms CreateObjectMapping: 0.140000 ms MarkObjects: 3.151200 ms  DeleteObjects: 0.020700 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 337.407862 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3803c91af2dd35db97ec68d336f71b8') in 0.034107 seconds
-  Import took 0.040362 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.634576 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1be30e500f207697d5ffd32528953d4f') in 0.005589 seconds
-  Import took 0.012245 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 118.933419 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4c21e18afcefe22c506033e240fcc79') in 0.005124 seconds
-  Import took 0.011074 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 187.133297 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f301aa15d0273061817576bc788dc0') in 0.005409 seconds
-  Import took 0.015507 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 33.336386 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b63a17f266f5f9732f8fa81640e5d579') in 0.005068 seconds
-  Import took 0.010929 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 56.434116 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d18adfba34345c1ef110b56705a5e7e') in 0.005250 seconds
-  Import took 0.010946 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 285.708703 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3105ab380a185950e37a0aed2ce77976') in 0.005758 seconds
-  Import took 0.012418 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 75.036894 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d2ae77cddabbfba644e1f7f74fb5767') in 0.005131 seconds
-  Import took 0.010469 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 96.845401 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04d4000c688247e0df63bd24fafac9bb') in 0.005349 seconds
-  Import took 0.011513 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002679 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.077 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.5 MB.
-System memory in use after: 139.7 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3536.
-Total: 2.500700 ms (FindLiveObjects: 0.274000 ms CreateObjectMapping: 0.129200 ms MarkObjects: 2.079300 ms  DeleteObjects: 0.017400 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 191.460635 seconds.
-  path: Assets/Prefabs/FX_Blackhole_Large-Custom.prefab
-  artifactKey: Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/FX_Blackhole_Large-Custom.prefab using Guid(c3a8d55900d473345a463eef61fa6294) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1904180d6a7d4e9027d6963dd28a00cc') in 0.045645 seconds
-  Import took 0.051820 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002503 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.067 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.5 MB.
-System memory in use after: 139.7 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3539.
-Total: 2.451700 ms (FindLiveObjects: 0.295300 ms CreateObjectMapping: 0.132000 ms MarkObjects: 2.006100 ms  DeleteObjects: 0.016800 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 42.714573 seconds.
-  path: Assets/Prefabs/Ship.prefab
-  artifactKey: Guid(a7cdb41dde0f2454bacb2254b0496323) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Ship.prefab using Guid(a7cdb41dde0f2454bacb2254b0496323) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da250c7fb6a54488283952724f564ebd') in 0.201238 seconds
-  Import took 0.208445 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002479 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.81 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.073 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.7 MB.
-System memory in use after: 139.9 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3578.
-Total: 2.530100 ms (FindLiveObjects: 0.300700 ms CreateObjectMapping: 0.138200 ms MarkObjects: 2.073700 ms  DeleteObjects: 0.016300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002589 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.047 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.7 MB.
-System memory in use after: 139.9 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3581.
-Total: 2.584600 ms (FindLiveObjects: 0.266600 ms CreateObjectMapping: 0.129700 ms MarkObjects: 2.171900 ms  DeleteObjects: 0.015400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002395 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.103 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.7 MB.
-System memory in use after: 140.0 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3584.
-Total: 2.957100 ms (FindLiveObjects: 0.273800 ms CreateObjectMapping: 0.129500 ms MarkObjects: 2.537100 ms  DeleteObjects: 0.015900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002556 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.057 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.7 MB.
-System memory in use after: 140.0 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3587.
-Total: 3.070300 ms (FindLiveObjects: 0.416800 ms CreateObjectMapping: 0.202500 ms MarkObjects: 2.431400 ms  DeleteObjects: 0.018900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002494 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.048 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.7 MB.
-System memory in use after: 140.0 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3590.
-Total: 2.580500 ms (FindLiveObjects: 0.298700 ms CreateObjectMapping: 0.133900 ms MarkObjects: 2.130400 ms  DeleteObjects: 0.016700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002500 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.82 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.053 seconds
+- Completed reload, in  1.069 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.8 MB.
-System memory in use after: 140.0 MB.
+System memory in use before: 139.9 MB.
+System memory in use after: 140.1 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3593.
-Total: 2.665800 ms (FindLiveObjects: 0.340900 ms CreateObjectMapping: 0.134400 ms MarkObjects: 2.173400 ms  DeleteObjects: 0.016100 ms)
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3529.
+Total: 2.422700 ms (FindLiveObjects: 0.287200 ms CreateObjectMapping: 0.130200 ms MarkObjects: 1.989400 ms  DeleteObjects: 0.015100 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002462 seconds.
+Registered in 0.002406 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.027 seconds
+- Completed reload, in  1.037 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.8 MB.
-System memory in use after: 140.0 MB.
+System memory in use before: 140.0 MB.
+System memory in use after: 140.2 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3596.
-Total: 3.112200 ms (FindLiveObjects: 0.318500 ms CreateObjectMapping: 0.155500 ms MarkObjects: 2.617100 ms  DeleteObjects: 0.019700 ms)
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3532.
+Total: 2.516900 ms (FindLiveObjects: 0.288300 ms CreateObjectMapping: 0.129400 ms MarkObjects: 2.081800 ms  DeleteObjects: 0.016700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 782.000008 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Cube_01.fbx
+  artifactKey: Guid(85fc17bbb25602b4b867edf57a1edcc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Cube_01.fbx using Guid(85fc17bbb25602b4b867edf57a1edcc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb412879410978ba21ca62e9df8f4bd6') in 0.186812 seconds
+  Import took 0.193622 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_01.fbx
+  artifactKey: Guid(da6958cc1cd1284468b1549653427a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_01.fbx using Guid(da6958cc1cd1284468b1549653427a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17ad59962999febcb032c0b366fed404') in 0.012181 seconds
+  Import took 0.018174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_04.fbx
+  artifactKey: Guid(534b3ead8b886704bb7d953cfac1b30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_04.fbx using Guid(534b3ead8b886704bb7d953cfac1b30b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be18393c15ebe2e1ade7ba086428dfcc') in 0.012195 seconds
+  Import took 0.017213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Keycard_02.fbx
+  artifactKey: Guid(2b14f5e6069411c40b711cb480cd0207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Keycard_02.fbx using Guid(2b14f5e6069411c40b711cb480cd0207) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '088c09deb175133ffc0fbb915e41c22c') in 0.012470 seconds
+  Import took 0.017441 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_07.fbx
+  artifactKey: Guid(354a3ecd59711244a8ed4002ea335b9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_07.fbx using Guid(354a3ecd59711244a8ed4002ea335b9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6d0a8e2320a934f699faf0a769a515c') in 0.011787 seconds
+  Import took 0.016713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_05.fbx
+  artifactKey: Guid(3f42b7180ab5b7647bd907375e4a8c1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_05.fbx using Guid(3f42b7180ab5b7647bd907375e4a8c1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75ee0a8dc3843fbaf88a36ef937425c6') in 0.014842 seconds
+  Import took 0.019883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Cube_02.fbx
+  artifactKey: Guid(78d9261781d0f3041a5d880a87f96ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Cube_02.fbx using Guid(78d9261781d0f3041a5d880a87f96ad2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b63246ea391006f22f13d4240b55bda2') in 0.011590 seconds
+  Import took 0.016533 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Ladder_Handles_01.fbx
+  artifactKey: Guid(1c90f29b292806b43912dc63809e8e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Ladder_Handles_01.fbx using Guid(1c90f29b292806b43912dc63809e8e56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4de1a09e887ce14bbcbfa08b2933939') in 0.012438 seconds
+  Import took 0.017269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_02.fbx
+  artifactKey: Guid(60caff3f22076b54fae5af6695e0cd34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_02.fbx using Guid(60caff3f22076b54fae5af6695e0cd34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '118d304957e43b50f8b740b8c5af7641') in 0.011609 seconds
+  Import took 0.016141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_04.fbx
+  artifactKey: Guid(5f51ca0c2ac3e5a4e83455b9cb3e911b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_04.fbx using Guid(5f51ca0c2ac3e5a4e83455b9cb3e911b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b20512925a1b1b5bda748c5f10e4dc2') in 0.011856 seconds
+  Import took 0.016480 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Keycard_03.fbx
+  artifactKey: Guid(eed2f9fba32ddd14a836630392ea04ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Keycard_03.fbx using Guid(eed2f9fba32ddd14a836630392ea04ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40d162b843069faf95c3d043b17b7383') in 0.012240 seconds
+  Import took 0.017035 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_03.fbx
+  artifactKey: Guid(3acb99c5c23346644982a0f9bfb6ca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_03.fbx using Guid(3acb99c5c23346644982a0f9bfb6ca7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a666dc39842aaaa22c7c89628c5a5dc') in 0.012199 seconds
+  Import took 0.017111 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_03.fbx
+  artifactKey: Guid(b6a2b5c7bc44f0f4388438f6f89beb43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_03.fbx using Guid(b6a2b5c7bc44f0f4388438f6f89beb43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd392b3405c95a2b6185718b6f8e6ab40') in 0.011245 seconds
+  Import took 0.016355 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Ladder_01.fbx
+  artifactKey: Guid(a6a36dbbba473ef4bbe272156d9b1591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Ladder_01.fbx using Guid(a6a36dbbba473ef4bbe272156d9b1591) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab2fc1233fd3d00e267ac71d4f201c1a') in 0.011914 seconds
+  Import took 0.017015 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Handle_01.fbx
+  artifactKey: Guid(a9d3acbdcd9005747a47e517e737adc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Handle_01.fbx using Guid(a9d3acbdcd9005747a47e517e737adc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f9a61fef34b524bdec03da942a8b352') in 0.012056 seconds
+  Import took 0.017013 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_02.fbx
+  artifactKey: Guid(8cd32b3f65625b4418de73132f7177c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Hose_02.fbx using Guid(8cd32b3f65625b4418de73132f7177c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5083063a4bae90b626a3081ffb52ce8c') in 0.011702 seconds
+  Import took 0.016502 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_HandScanner_01.fbx
+  artifactKey: Guid(c597a9b8367a25c4d91fe36790cd8c62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_HandScanner_01.fbx using Guid(c597a9b8367a25c4d91fe36790cd8c62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5aaedc09de681ea77f16d66b8e47245') in 0.011718 seconds
+  Import took 0.017694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Joystick_01.fbx
+  artifactKey: Guid(3ea8cf7a3ff9a3f4892e8b7c9348b995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Joystick_01.fbx using Guid(3ea8cf7a3ff9a3f4892e8b7c9348b995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20258941032c38b2c0665b2483d388a3') in 0.012206 seconds
+  Import took 0.017288 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_06.fbx
+  artifactKey: Guid(d25be51231836a84f91230641882af01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_06.fbx using Guid(d25be51231836a84f91230641882af01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ded1466703b65cfb654e523b7794231e') in 0.010958 seconds
+  Import took 0.015633 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Keycard_01.fbx
+  artifactKey: Guid(5853a376bfee8e9488fd590daa7c56bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Keycard_01.fbx using Guid(5853a376bfee8e9488fd590daa7c56bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '802f2b911447b523bfeab09b87ea467c') in 0.011953 seconds
+  Import took 0.016793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_01.fbx
+  artifactKey: Guid(4b5b1629a8cd0b24da51bfde9207d6aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Greeble_Panel_01.fbx using Guid(4b5b1629a8cd0b24da51bfde9207d6aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edaa112b72d33926c1b38976a076182f') in 0.011663 seconds
+  Import took 0.016695 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.277761 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Panel_03.fbx
+  artifactKey: Guid(89a66e962cf5389499c18db5069e9fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Panel_03.fbx using Guid(89a66e962cf5389499c18db5069e9fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1acd412a485c31d5d64e1855c42dbef7') in 0.014494 seconds
+  Import took 0.019915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_04.fbx
+  artifactKey: Guid(11b779209a0307c40a1b702fecfd38f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_04.fbx using Guid(11b779209a0307c40a1b702fecfd38f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37b074bdbbe4a3ea05261a001a1f7cbb') in 0.012193 seconds
+  Import took 0.017267 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_07.fbx
+  artifactKey: Guid(1c4c37bdccf927e4f8eb597ee78cb354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_07.fbx using Guid(1c4c37bdccf927e4f8eb597ee78cb354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f02d2ff8b651cf73b79ca8c03814fb56') in 0.013148 seconds
+  Import took 0.018608 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_06.fbx
+  artifactKey: Guid(d73498fe9fd25a7428b2745c2c5d98d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_06.fbx using Guid(d73498fe9fd25a7428b2745c2c5d98d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f30e253e885e0cb64ebb7403bf97a27') in 0.012616 seconds
+  Import took 0.018513 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_05.fbx
+  artifactKey: Guid(e4ecc4d3e7dee2d4d9098b4c0fbdf73d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_05.fbx using Guid(e4ecc4d3e7dee2d4d9098b4c0fbdf73d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19b2309df00d862ee5a36d27df41e0ac') in 0.014174 seconds
+  Import took 0.022959 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_03.fbx
+  artifactKey: Guid(3eeb0e988b4bd8848828e2a48b7d070f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_03.fbx using Guid(3eeb0e988b4bd8848828e2a48b7d070f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd4c52a96c447799f71bc84b4c3063c4') in 0.014124 seconds
+  Import took 0.019119 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Wep_Sword_01.fbx
+  artifactKey: Guid(41e75d700cdfda04cb90ea04e9861441) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Wep_Sword_01.fbx using Guid(41e75d700cdfda04cb90ea04e9861441) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9026f16dff67eb7db39108d25434da47') in 0.019663 seconds
+  Import took 0.024645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_01.fbx
+  artifactKey: Guid(064ae03f3ce9c11439f4ff9a4a685e30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_01.fbx using Guid(064ae03f3ce9c11439f4ff9a4a685e30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5320fd7797450f33d1c9e4606bf9380') in 0.013558 seconds
+  Import took 0.018200 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Panel_04.fbx
+  artifactKey: Guid(5295febd4d72e0342ba6809cee80484f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Panel_04.fbx using Guid(5295febd4d72e0342ba6809cee80484f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0952eaacb9ca5e93b83701218091864f') in 0.011998 seconds
+  Import took 0.016702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_08.fbx
+  artifactKey: Guid(351bffd63248fd84bbfb9bafc044cda7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_08.fbx using Guid(351bffd63248fd84bbfb9bafc044cda7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e9c82a9bae890c10be22edb6b985ff2') in 0.013600 seconds
+  Import took 0.018947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_02.fbx
+  artifactKey: Guid(2078a94674bc2f04db899d7a0f8dc370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Small_02.fbx using Guid(2078a94674bc2f04db899d7a0f8dc370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '922d068605604582240a3d8d5a6ccdb6') in 0.012094 seconds
+  Import took 0.016823 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Panel_05.fbx
+  artifactKey: Guid(7d93ba4b92940184984fbc940b67fb4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Prop_Light_Panel_05.fbx using Guid(7d93ba4b92940184984fbc940b67fb4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af59a844648b0b2dd79c82542999eb50') in 0.012085 seconds
+  Import took 0.017134 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/PolygonSciFiSpace/Models/SM_Wep_Sword_Double_01.fbx
+  artifactKey: Guid(5a60f355d04366240bd7b0c1cb8e22f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PolygonSciFiSpace/Models/SM_Wep_Sword_Double_01.fbx using Guid(5a60f355d04366240bd7b0c1cb8e22f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab2b222dc4f7972791815f252b5a0fb4') in 0.017234 seconds
+  Import took 0.022319 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002617 seconds.
+Registered in 0.004039 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.035 seconds
+- Completed reload, in  1.040 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.8 MB.
-System memory in use after: 140.0 MB.
+System memory in use before: 140.2 MB.
+System memory in use after: 140.4 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3599.
-Total: 2.640800 ms (FindLiveObjects: 0.287700 ms CreateObjectMapping: 0.137300 ms MarkObjects: 2.198200 ms  DeleteObjects: 0.016500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 7433.740204 seconds.
-  path: Assets/Prefabs/Ship.prefab
-  artifactKey: Guid(a7cdb41dde0f2454bacb2254b0496323) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Ship.prefab using Guid(a7cdb41dde0f2454bacb2254b0496323) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65506fb47ba3ff9ce39153e57a507392') in 0.195880 seconds
-  Import took 0.203770 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 23.790894 seconds.
-  path: Assets/Prefabs/Asteroids/Asteroid-Variant4.prefab
-  artifactKey: Guid(f21469d72be5e4145b380781f60fdb34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Asteroids/Asteroid-Variant4.prefab using Guid(f21469d72be5e4145b380781f60fdb34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef548b34e8e1bc82acbd119d5a0c4c73') in 0.017289 seconds
-  Import took 0.024039 seconds .
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3571.
+Total: 2.557300 ms (FindLiveObjects: 0.275000 ms CreateObjectMapping: 0.129700 ms MarkObjects: 2.131600 ms  DeleteObjects: 0.020100 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002458 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.060 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.9 MB.
-System memory in use after: 140.1 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3638.
-Total: 2.501300 ms (FindLiveObjects: 0.304100 ms CreateObjectMapping: 0.131200 ms MarkObjects: 2.048600 ms  DeleteObjects: 0.016100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002670 seconds.
+Registered in 0.002419 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.066 seconds
+- Completed reload, in  1.052 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.9 MB.
-System memory in use after: 140.1 MB.
+System memory in use before: 140.2 MB.
+System memory in use after: 140.4 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3641.
-Total: 2.553800 ms (FindLiveObjects: 0.298800 ms CreateObjectMapping: 0.131900 ms MarkObjects: 2.105100 ms  DeleteObjects: 0.016900 ms)
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3574.
+Total: 2.641800 ms (FindLiveObjects: 0.417500 ms CreateObjectMapping: 0.153800 ms MarkObjects: 2.053300 ms  DeleteObjects: 0.016100 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002537 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.050 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.82 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.9 MB.
-System memory in use after: 140.1 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3644.
-Total: 2.724000 ms (FindLiveObjects: 0.275900 ms CreateObjectMapping: 0.131500 ms MarkObjects: 2.299400 ms  DeleteObjects: 0.016100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002765 seconds.
+Registered in 0.002461 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.031 seconds
+- Completed reload, in  1.036 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2852 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.9 MB.
-System memory in use after: 140.1 MB.
+System memory in use before: 140.2 MB.
+System memory in use after: 140.4 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3647.
-Total: 2.563400 ms (FindLiveObjects: 0.311600 ms CreateObjectMapping: 0.131600 ms MarkObjects: 2.102100 ms  DeleteObjects: 0.017200 ms)
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3577.
+Total: 3.021500 ms (FindLiveObjects: 0.278500 ms CreateObjectMapping: 0.163500 ms MarkObjects: 2.558500 ms  DeleteObjects: 0.019600 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

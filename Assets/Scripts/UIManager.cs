@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI ScoreText;
     public RectTransform GameOverText;
+    public RectTransform LevelClearText;
     public RectTransform LivesUI;
     public RectTransform Life;
 

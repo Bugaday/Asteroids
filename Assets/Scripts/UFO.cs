@@ -42,9 +42,11 @@ public class UFO : MonoBehaviour
 
     public void DestroyUFO()
     {
+        gm.AddScore(50);
         am.Play("UFOExplosion");
         Instantiate(gm.ExplosionShip, transform.position, Quaternion.identity);
-
+        cam.GetComponent<CamShake>().ShakeStrength = 1f;
+        cam.GetComponent<CamShake>().camShakeActive = true;
         Instantiate(DestroyedRoot, transform.position, transform.rotation);
 
         Destroy(gameObject);
