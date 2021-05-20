@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject Environment;
+    public GameObject Planet;
     public Material[] PlanetMaterials;
     public Mesh[] PlanetMeshes;
     public Material[] Skyboxes;
@@ -26,6 +28,10 @@ public class GameManager : MonoBehaviour
     float xSpaceMax;
     float ySpaceMin;
     float ySpaceMax;
+    float envXSpaceMin;
+    float envXSpaceMax;
+    float envYSpaceMin;
+    float envYSpaceMax;
 
     float ufoTimer = 25.0f;
     float ufoTimeToSpawn;
@@ -85,6 +91,10 @@ public class GameManager : MonoBehaviour
         Destroy(CurrentShip.gameObject);
         yield return new WaitForSeconds(3);
         um.LevelClearText.gameObject.SetActive(false);
+        foreach (Transform item in Environment.transform)
+        {
+            Destroy(item.gameObject);
+        }
         PopulateLevel();
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
@@ -146,6 +156,21 @@ public class GameManager : MonoBehaviour
         return newPos;
     }
 
+    Vector3 RandomEnvPosition()
+    {
+        float envObjectDistance = Random.Range(800f, 1900f);
+        envXSpaceMin = cam.ViewportToWorldPoint(new Vector3(0, 0.5f, cam.transform.position.z * -1 + envObjectDistance)).x;
+        envXSpaceMax = cam.ViewportToWorldPoint(new Vector3(1, 0.5f, cam.transform.position.z * -1 + envObjectDistance)).x;
+        envYSpaceMin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0, cam.transform.position.z * -1 + envObjectDistance)).y;
+        envYSpaceMax = cam.ViewportToWorldPoint(new Vector3(0.5f, 1, cam.transform.position.z * -1 + envObjectDistance)).y;
+
+        float newX = Random.Range(envXSpaceMin, envXSpaceMax);
+        float newY = Random.Range(envYSpaceMin, envYSpaceMax);
+
+        Vector3 newEnvPos = new Vector3(newX, newY, envObjectDistance);
+        return newEnvPos;
+    }
+
     private void PopulateLevel()
     {
         RenderSettings.skybox = Skyboxes[Random.Range(0, Skyboxes.Length - 1)];
@@ -154,6 +179,20 @@ public class GameManager : MonoBehaviour
             Vector3 randPos = RandomPointInLevel();
             float randRot = Random.Range(-180, 180);
             Asteroid newAsteroid = Instantiate(asteroidTypes[Random.Range(0, asteroidTypes.Length - 1)], randPos, Quaternion.Euler(0, 0, randRot));
+        }
+
+        int planetsToSpawn = Random.Range(0, 4);
+        int starsToSpawn = Random.Range(0, 2);
+
+        for (int i = 0; i < planetsToSpawn; i++)
+        {
+            Vector3 newPlanetRandPos = RandomEnvPosition();
+            Quaternion planetRandRot = Quaternion.Euler(new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)));
+            Mesh planetMesh = PlanetMeshes[Random.Range(0,PlanetMeshes.Length - 1)];
+            Material newPlanetMaterial = PlanetMaterials[Random.Range(0, PlanetMaterials.Length - 1)];
+            GameObject newPlanet = Instantiate(Planet, newPlanetRandPos, planetRandRot,Environment.transform);
+            newPlanet.GetComponent<MeshFilter>().mesh = planetMesh;
+            newPlanet.GetComponent<MeshRenderer>().material = newPlanetMaterial;
         }
     }
 
