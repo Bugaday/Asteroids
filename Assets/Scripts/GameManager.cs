@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Mesh[] PlanetMeshes;
     public Material[] Skyboxes;
     public GameObject PlanetRings;
+    public GameObject Sun;
+    public GameObject AsteroidField;
 
 
     public Asteroid[] asteroidTypes;
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     float ufoTimeToSpawn;
 
     public Ship CurrentShip;
+    UFO CurrentUFO;
 
     UIManager um;
     Camera cam;
@@ -64,8 +67,6 @@ public class GameManager : MonoBehaviour
         ySpaceMin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0, cam.transform.position.z * -1)).y;
         ySpaceMax = cam.ViewportToWorldPoint(new Vector3(0.5f, 1f, cam.transform.position.z * -1)).y;
 
-        print(xSpaceMin + " , " + xSpaceMax + " , " + ySpaceMin + " , " + ySpaceMax);
-
         Cursor.visible = false;
         StartCoroutine(StartGame());
         StartCoroutine(CheckLevelOver());
@@ -84,16 +85,26 @@ public class GameManager : MonoBehaviour
 
     IEnumerator NewLevel()
     {
-        yield return new WaitForSeconds(1);
-        um.LevelClearText.gameObject.SetActive(true);
+        //yield return new WaitForSeconds(1);
+        //um.LevelClearText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
         Destroy(CurrentShip.gameObject);
+
         yield return new WaitForSeconds(3);
-        um.LevelClearText.gameObject.SetActive(false);
+        //um.LevelClearText.gameObject.SetActive(false);
         foreach (Transform item in Environment.transform)
         {
             Destroy(item.gameObject);
+        }
+
+        //Reset UFO
+        ufoTimeToSpawn = Time.timeSinceLevelLoad + ufoTimer;
+        if (CurrentUFO) Destroy(CurrentUFO.gameObject);
+        Bullet[] bulletsInScene = FindObjectsOfType<Bullet>();
+        foreach (var bullet in bulletsInScene)
+        {
+            Destroy(bullet.gameObject);
         }
         PopulateLevel();
         yield return new WaitForSeconds(1);
@@ -102,6 +113,7 @@ public class GameManager : MonoBehaviour
         CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
         StartCoroutine(CurrentShip.StartInvincible());
         hyperSpaceAvailable = true;
+        um.ChangeWarp(true);
         StartCoroutine(CheckLevelOver());
     }
 
@@ -135,7 +147,8 @@ public class GameManager : MonoBehaviour
         {
             if (hyperSpaceAvailable)
             {
-                //hyperSpaceAvailable = false;
+                hyperSpaceAvailable = false;
+                um.ChangeWarp(false);
                 Vector3 newPos = RandomPointInLevel();
                 StartCoroutine(HyperSpace(newPos));
             }
@@ -156,9 +169,9 @@ public class GameManager : MonoBehaviour
         return newPos;
     }
 
-    Vector3 RandomEnvPosition()
+    Vector3 RandomEnvPosition(float zMin, float zMax)
     {
-        float envObjectDistance = Random.Range(800f, 1900f);
+        float envObjectDistance = Random.Range(zMin, zMax);
         envXSpaceMin = cam.ViewportToWorldPoint(new Vector3(0, 0.5f, cam.transform.position.z * -1 + envObjectDistance)).x;
         envXSpaceMax = cam.ViewportToWorldPoint(new Vector3(1, 0.5f, cam.transform.position.z * -1 + envObjectDistance)).x;
         envYSpaceMin = cam.ViewportToWorldPoint(new Vector3(0.5f, 0, cam.transform.position.z * -1 + envObjectDistance)).y;
@@ -173,7 +186,11 @@ public class GameManager : MonoBehaviour
 
     private void PopulateLevel()
     {
+        //Create random skybox and offset it
         RenderSettings.skybox = Skyboxes[Random.Range(0, Skyboxes.Length - 1)];
+        float newSkyboxRotation = Random.Range(90, 270);
+        RenderSettings.skybox.SetFloat("_Rotation", newSkyboxRotation);
+
         for (int i = 0; i < AsteroidsToSpawn; i++)
         {
             Vector3 randPos = RandomPointInLevel();
@@ -186,13 +203,32 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < planetsToSpawn; i++)
         {
-            Vector3 newPlanetRandPos = RandomEnvPosition();
+            Vector3 newPlanetRandPos = RandomEnvPosition(800f,1900f);
             Quaternion planetRandRot = Quaternion.Euler(new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)));
             Mesh planetMesh = PlanetMeshes[Random.Range(0,PlanetMeshes.Length - 1)];
             Material newPlanetMaterial = PlanetMaterials[Random.Range(0, PlanetMaterials.Length - 1)];
             GameObject newPlanet = Instantiate(Planet, newPlanetRandPos, planetRandRot,Environment.transform);
             newPlanet.GetComponent<MeshFilter>().mesh = planetMesh;
             newPlanet.GetComponent<MeshRenderer>().material = newPlanetMaterial;
+            //20% chance for planet to have rings
+            if (Random.value < 0.2f)
+            {
+                Quaternion ringRot = Quaternion.Euler(new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)));
+                Instantiate(PlanetRings, newPlanet.transform.position, ringRot, newPlanet.transform);
+            }
+        }
+        //80% chance to spawn a star
+        if (Random.value >= 0.2f)
+        {
+            Vector3 newSunPos = RandomEnvPosition(1000f, 1800f);
+            Instantiate(Sun, newSunPos, Quaternion.identity, Environment.transform);
+        }
+
+        //Spawn asteroid fields
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 fieldPos = RandomEnvPosition(150, 250);
+            Instantiate(AsteroidField, fieldPos, Quaternion.identity, Environment.transform);
         }
     }
 
@@ -212,7 +248,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnUfo()
     {
-        Instantiate(ufo, new Vector3(-100.0f, 0, 0), Quaternion.identity);
+        CurrentUFO = Instantiate(ufo, new Vector3(-100.0f, 0, 0), Quaternion.identity);
     }
 
       public void AddScore(int ScoreToAdd)

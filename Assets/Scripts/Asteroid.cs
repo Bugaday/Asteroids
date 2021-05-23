@@ -10,6 +10,13 @@ public class Asteroid : MonoBehaviour
     CapsuleCollider2D capsuleCol;
     Camera cam;
 
+    public GameObject ThreeD;
+    public GameObject TwoD;
+
+    Vector3 rotAxis;
+    public float MinRotSpeed = 30f;
+    public float MaxRotSpeed = 50f;
+
     public int stage = 1;
     int chunks = 2;
     LayerMask bulletMask;
@@ -30,6 +37,14 @@ public class Asteroid : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(randDir * 600);
         GetComponent<Rigidbody2D>().AddTorque(Random.Range(-9, 9));
         bulletMask = LayerMask.NameToLayer("Bullet");
+
+        MaxRotSpeed = Random.Range(MinRotSpeed, MaxRotSpeed);
+        rotAxis = Random.rotation.eulerAngles;
+    }
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.AngleAxis(Time.timeSinceLevelLoad * MaxRotSpeed, rotAxis);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -14,11 +14,14 @@ public class UFO : MonoBehaviour
 
     Camera cam;
 
+    AudioSource aSource;
+
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
         cam = Camera.main;
         am = FindObjectOfType<AudioManager>();
+        aSource = GetComponent<AudioSource>();
         StartCoroutine(Shoot());
     }
 
@@ -36,7 +39,8 @@ public class UFO : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Bullet newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-        //newBullet.dir = new Vector2(Mathf.Sin(Mathf.Deg2Rad * Random.Range(-180, 180)),Mathf.Cos(Mathf.Deg2Rad * Random.Range(-180, 180))).normalized;
+        aSource.Play();
+        newBullet.transform.up = new Vector2(Mathf.Sin(Mathf.Deg2Rad * Random.Range(-180, 180)),Mathf.Cos(Mathf.Deg2Rad * Random.Range(-180, 180))).normalized;
         StartCoroutine(Shoot());
     }
 

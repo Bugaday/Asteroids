@@ -188,6 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166ed554bc7c9c342b6c99cbcc00de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canWrapAround: 1
+  wrapTimer: 0
 --- !u!114 &-1558382365333939957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a89b3365953aaa44a34fa2a03e316f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ThreeD: {fileID: 7674074105704645242}
+  TwoD: {fileID: 4509614276597791766}
+  RotationSpeed: 50
   stage: 1
 --- !u!70 &8534921003909466844
 CapsuleCollider2D:
