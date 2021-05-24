@@ -17,6 +17,7 @@ public class Ship : MonoBehaviour
     public GameObject Forcefield;
     public GameObject Rendering;
     public GameObject DestroyedRoot;
+    public GameObject Reticle;
 
     //Components
     [HideInInspector]
@@ -150,6 +151,7 @@ public class Ship : MonoBehaviour
         //Fire Rate
         if (timeToNextShot <= 0)
         {
+
             canShoot = true;
         }
         else
@@ -162,14 +164,16 @@ public class Ship : MonoBehaviour
         {
             if (canShoot)
             {
+                if (!gm.IsGamePaused)
+                {
+                    Quaternion bulletRot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+                    Instantiate(bullet, FirePoint.position, bulletRot);
 
-                Quaternion bulletRot = Quaternion.Euler(0, 0, transform.eulerAngles.z);
-                Instantiate(bullet, FirePoint.position, bulletRot);
+                    aSource.Play();
 
-                aSource.Play();
-
-                canShoot = false;
-                timeToNextShot = timeBetweenShots;
+                    canShoot = false;
+                    timeToNextShot = timeBetweenShots;
+                }
             }
         }
     }

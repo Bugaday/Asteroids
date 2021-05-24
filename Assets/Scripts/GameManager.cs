@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public bool IsInThreeD = true;
+
     public GameObject Environment;
     public GameObject Planet;
     public Material[] PlanetMaterials;
@@ -13,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject PlanetRings;
     public GameObject Sun;
     public GameObject AsteroidField;
+
+    public bool IsGamePaused = false;
 
 
     public Asteroid[] asteroidTypes;
@@ -42,6 +46,7 @@ public class GameManager : MonoBehaviour
     UFO CurrentUFO;
 
     UIManager um;
+    AudioManager am;
     Camera cam;
 
     public int lives = 3;
@@ -53,6 +58,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         um = FindObjectOfType<UIManager>();
+        am = FindObjectOfType<AudioManager>();
         cam = Camera.main;
 
         ufoTimeToSpawn = ufoTimer;
@@ -78,6 +84,7 @@ public class GameManager : MonoBehaviour
     {
         PopulateLevel();
         yield return new WaitForSeconds(1);
+        am.Play("WarpIn");
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
         yield return new WaitForSeconds(1);
         CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
@@ -89,6 +96,7 @@ public class GameManager : MonoBehaviour
         //um.LevelClearText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
+        am.Play("WarpOut");
         Destroy(CurrentShip.gameObject);
 
         yield return new WaitForSeconds(3);
@@ -109,6 +117,7 @@ public class GameManager : MonoBehaviour
         PopulateLevel();
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
+        am.Play("WarpIn");
         yield return new WaitForSeconds(1);
         CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
         StartCoroutine(CurrentShip.StartInvincible());
@@ -121,6 +130,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
+        am.Play("WarpIn");
         yield return new WaitForSeconds(1);
         CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
         StartCoroutine(CurrentShip.StartInvincible());
@@ -128,10 +138,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator HyperSpace(Vector3 newPosition)
     {
+        am.Play("WarpOut");
         Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
         Destroy(CurrentShip.gameObject);
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, newPosition, Quaternion.identity);
+        am.Play("WarpIn");
         yield return new WaitForSeconds(1);
         CurrentShip = Instantiate(NewShip, newPosition, Quaternion.identity);
     }
@@ -142,6 +154,18 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
         if (Input.GetKeyDown(KeyCode.N)) StartCoroutine(NewLevel());
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (IsInThreeD)
+            {
+                SwitchToTwoDGraphics();
+            }
+            else
+            {
+                SwitchToThreeDGraphics();
+            }
+        }
 
         if (Input.GetButtonDown("Hyperspace"))
         {
@@ -198,7 +222,7 @@ public class GameManager : MonoBehaviour
             Asteroid newAsteroid = Instantiate(asteroidTypes[Random.Range(0, asteroidTypes.Length - 1)], randPos, Quaternion.Euler(0, 0, randRot));
         }
 
-        int planetsToSpawn = Random.Range(0, 4);
+        int planetsToSpawn = Random.Range(0, 3);
         int starsToSpawn = Random.Range(0, 2);
 
         for (int i = 0; i < planetsToSpawn; i++)
@@ -287,5 +311,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    void SwitchToTwoDGraphics()
+    {
+        IsInThreeD = false;
+    }
+
+    void SwitchToThreeDGraphics()
+    {
+        IsInThreeD = true;
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 105651986550417114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 4461424347490215095}
   m_RootOrder: 0
@@ -1194,6 +1194,7 @@ GameObject:
   - component: {fileID: 6114536333952582144}
   - component: {fileID: 8191832110288789898}
   - component: {fileID: 903450903714114553}
+  - component: {fileID: 2465275544924590391}
   m_Layer: 10
   m_Name: Ship
   m_TagString: Untagged
@@ -1418,11 +1419,26 @@ MonoBehaviour:
   Rendering: {fileID: 2644894301668597389}
   DestroyedRoot: {fileID: 8192368636913206643, guid: cea58d8aca4b23a4a984b3b7ccb5ebf4,
     type: 3}
+  Reticle: {fileID: 2455548401686887477}
   rb: {fileID: 0}
   VelClamp: 40
   RotSpeed: 200
   Force: 60
   timeBetweenShots: 0.1
+--- !u!114 &2465275544924590391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000186561015493359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363fad6ae7d50a247ad43ba7f8a30060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThreeD: {fileID: 1715757121511391298}
+  TwoD: {fileID: 792929087737923845}
 --- !u!1001 &1796084833626500917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2044,6 +2060,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c733e49099851c04ea10988403af66e6, type: 3}
+--- !u!1 &2455548401686887477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6386044141720180029, guid: c733e49099851c04ea10988403af66e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8830456115086043400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2451113019476609625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6379365643855864657, guid: c733e49099851c04ea10988403af66e6,
