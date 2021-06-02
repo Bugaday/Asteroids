@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4509614276597791766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children: []
   m_Father: {fileID: 6292140713633315027}
   m_RootOrder: 1
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 7333491940662333768}
   - component: {fileID: -1558382365333939957}
   - component: {fileID: 8534921003909466844}
+  - component: {fileID: 585428727176880576}
   m_Layer: 11
   m_Name: Asteroid
   m_TagString: Untagged
@@ -204,7 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThreeD: {fileID: 7674074105704645242}
   TwoD: {fileID: 4509614276597791766}
-  RotationSpeed: 50
+  MinRotSpeed: 30
+  MaxRotSpeed: 50
   stage: 1
 --- !u!70 &8534921003909466844
 CapsuleCollider2D:
@@ -222,6 +224,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 16, y: 16}
   m_Direction: 0
+--- !u!114 &585428727176880576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292140713633315025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363fad6ae7d50a247ad43ba7f8a30060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThreeD: {fileID: 7674074105704645242}
+  TwoD: {fileID: 4509614276597791766}
 --- !u!1 &7674074105704645242
 GameObject:
   m_ObjectHideFlags: 0

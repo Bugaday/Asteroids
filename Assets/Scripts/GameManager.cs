@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Material[] PlanetMaterials;
     public Mesh[] PlanetMeshes;
     public Material[] Skyboxes;
+    public Material CurrentSkybox;
     public GameObject PlanetRings;
     public GameObject Sun;
     public GameObject AsteroidField;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
         ufoTimeToSpawn = ufoTimer;
         extraLifeAtScore = ExtraLifeInterval;
         CurrentShip = FindObjectOfType<Ship>();
+        CurrentSkybox = RenderSettings.skybox;
     }
 
     private void Start()
@@ -212,8 +214,12 @@ public class GameManager : MonoBehaviour
     {
         //Create random skybox and offset it
         RenderSettings.skybox = Skyboxes[Random.Range(0, Skyboxes.Length - 1)];
+        CurrentSkybox = RenderSettings.skybox;
         float newSkyboxRotation = Random.Range(90, 270);
         RenderSettings.skybox.SetFloat("_Rotation", newSkyboxRotation);
+
+        //Check gfx switch settings for skybox for new level
+        if (!GetComponent<SwitchBGGraphics>().GfxOn) RenderSettings.skybox = null;
 
         for (int i = 0; i < AsteroidsToSpawn; i++)
         {
@@ -254,6 +260,8 @@ public class GameManager : MonoBehaviour
             Vector3 fieldPos = RandomEnvPosition(150, 250);
             Instantiate(AsteroidField, fieldPos, Quaternion.identity, Environment.transform);
         }
+
+
     }
 
     public void ShipDestroyed()

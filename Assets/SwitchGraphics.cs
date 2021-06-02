@@ -6,13 +6,17 @@ public class SwitchGraphics : MonoBehaviour
 {
     public GameObject ThreeD;
     public GameObject TwoD;
+    public bool IsParticleEffect = false;
+
     bool isThreeD = true;
 
     GameManager gm;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        gm = FindObjectOfType<GameManager>();
+
         if (gm.IsInThreeD)
         {
             SwitchToThreeD();
@@ -41,15 +45,32 @@ public class SwitchGraphics : MonoBehaviour
 
     void SwitchToTwoD()
     {
+        isThreeD = false;
+
+        if (IsParticleEffect)
+        {
+            foreach (Transform effect in ThreeD.transform)
+            {
+                effect.GetComponent<ParticleSystemRenderMode>() = ParticleSystemRenderMode.None;
+            }
+            return;
+        }
+
         ThreeD.SetActive(false);
         TwoD.SetActive(true);
-        isThreeD = false;
     }
 
     void SwitchToThreeD()
     {
+        isThreeD = true;
+
+        if (IsParticleEffect)
+        {
+            return;
+        }
+
         TwoD.SetActive(false);
         ThreeD.SetActive(true);
-        isThreeD = true;
+
     }
 }

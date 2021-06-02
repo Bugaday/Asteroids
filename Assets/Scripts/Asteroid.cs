@@ -44,14 +44,12 @@ public class Asteroid : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.AngleAxis(Time.timeSinceLevelLoad * MaxRotSpeed, rotAxis);
+        ThreeD.transform.rotation = Quaternion.AngleAxis(Time.timeSinceLevelLoad * MaxRotSpeed, rotAxis);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //print(collision.name + " : " + collision.transform.root.eulerAngles);
         if (collision.gameObject.layer == bulletMask) DestroyAndBreakup(collision.gameObject);
-        
     }
 
     void DestroyAndBreakup(GameObject collided)

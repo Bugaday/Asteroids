@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -5577261197978948537}
   - component: {fileID: -91080222111493749}
   - component: {fileID: 2444664707198113866}
+  - component: {fileID: 3401783059584683833}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -86,6 +87,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2, y: 5}
   m_Direction: 0
+--- !u!114 &3401783059584683833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471559149316802289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363fad6ae7d50a247ad43ba7f8a30060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThreeD: {fileID: 3613285259662466747}
+  TwoD: {fileID: 4915534981094891177}
 --- !u!1 &3613285259662466747
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +340,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d84a75f62ea37fd4eb74ddb7243012aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

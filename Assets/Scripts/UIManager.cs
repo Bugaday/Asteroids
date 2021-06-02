@@ -7,6 +7,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public CanvasScaler canvasScaler;
+    public RectTransform UIWrapper;
     public TextMeshProUGUI ScoreText;
     public RectTransform GameOverText;
     public RectTransform LevelClearText;
@@ -55,8 +57,11 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < lives; i++)
         {
-            Vector2 lifePos = new Vector2(385 - i * 30,270);
+            Vector2 lifePos = new Vector2(-i * 30,0);
             RectTransform newLife = Instantiate(Life,LivesUI);
+            newLife.anchorMax = Vector2.one;
+            newLife.anchorMin = Vector2.one;
+            newLife.pivot = Vector2.one;
             newLife.anchoredPosition = lifePos;
         }
     }
