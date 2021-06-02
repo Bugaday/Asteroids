@@ -51,7 +51,16 @@ public class SwitchGraphics : MonoBehaviour
         {
             foreach (Transform effect in ThreeD.transform)
             {
-                effect.GetComponent<ParticleSystemRenderMode>() = ParticleSystemRenderMode.None;
+                ParticleSystemRenderer effectRenderer = effect.GetComponent<ParticleSystemRenderer>();
+                effectRenderer.renderMode = ParticleSystemRenderMode.None;
+
+                var subEmitter = effect.GetComponent<ParticleSystem>().subEmitters;
+                subEmitter.enabled = false;
+            }
+            foreach (Transform effect in TwoD.transform)
+            {
+                ParticleSystemRenderer effectRenderer = effect.GetComponent<ParticleSystemRenderer>();
+                effectRenderer.renderMode = ParticleSystemRenderMode.Billboard;
             }
             return;
         }
@@ -66,6 +75,19 @@ public class SwitchGraphics : MonoBehaviour
 
         if (IsParticleEffect)
         {
+            foreach (Transform effect in TwoD.transform)
+            {
+                ParticleSystemRenderer effectRenderer = effect.GetComponent<ParticleSystemRenderer>();
+                effectRenderer.renderMode = ParticleSystemRenderMode.None;
+            }
+            foreach (Transform effect in ThreeD.transform)
+            {
+                ParticleSystemRenderer effectRenderer = effect.GetComponent<ParticleSystemRenderer>();
+                effectRenderer.renderMode = ParticleSystemRenderMode.Billboard;
+
+                var subEmitter = effect.GetComponent<ParticleSystem>().subEmitters;
+                subEmitter.enabled = true;
+            }
             return;
         }
 
