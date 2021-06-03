@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -91080222111493749}
   - component: {fileID: 2444664707198113866}
   - component: {fileID: 3401783059584683833}
+  - component: {fileID: 6994911089438634693}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
@@ -70,7 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  TimeToDie: 3
 --- !u!70 &2444664707198113866
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -101,6 +101,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThreeD: {fileID: 3613285259662466747}
   TwoD: {fileID: 4915534981094891177}
+  IsParticleEffect: 0
+--- !u!114 &6994911089438634693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471559149316802289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b809b3ef5b340114db631953e63902f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToDestroy: 3
 --- !u!1 &3613285259662466747
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 4915534981094891177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 6172922776926507197}
   m_RootOrder: 1

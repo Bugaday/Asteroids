@@ -175,6 +175,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.atime0
       value: 40478
       objectReference: {fileID: 0}
+    - target: {fileID: 5881117358868431999, guid: 49d87ea107327db4892ea367bbe1d465,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881117358868431999, guid: 49d87ea107327db4892ea367bbe1d465,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8647523618553960705, guid: 49d87ea107327db4892ea367bbe1d465,
         type: 3}
       propertyPath: InitialModule.startSize.scalar

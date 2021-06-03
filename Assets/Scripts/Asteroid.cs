@@ -69,7 +69,13 @@ public class Asteroid : MonoBehaviour
 
                 Asteroid newChunk = Instantiate(asteroidType, transform.position, Quaternion.Euler(0, 0, newRot));
                 newChunk.stage = stage + 1;
-                newChunk.transform.GetChild(0).localScale /= 2;
+
+                //Scale both 3D and 2D children down
+                foreach (Transform child in newChunk.transform)
+                {
+                    child.localScale /= 2;
+                }
+
                 newChunk.capsuleCol.size /= 2;
 
                 float newRandRot = Random.Range(collided.transform.eulerAngles.z + 30, collided.transform.eulerAngles.z + 150);

@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1262240055939308779}
-  - component: {fileID: -7996962550788759454}
   - component: {fileID: 2538319606424576527}
+  - component: {fileID: 9073969249939526662}
+  - component: {fileID: -7996962550788759454}
+  - component: {fileID: 3454151354854643038}
   m_Layer: 11
   m_Name: UFO
   m_TagString: Untagged
@@ -29,28 +31,11 @@ Transform:
   m_LocalPosition: {x: -100, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1326988493852851894}
   - {fileID: 3083850050956414065}
+  - {fileID: 1326988493852851894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7996962550788759454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203000293820104941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da40a8c8cf57444bba0258e5fb5efd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 40
-  moveDir: {x: 1, y: 0}
-  bullet: {fileID: 891459681356595897, guid: fe3cbbd96e3770449b751f5afb29d825, type: 3}
-  DestroyedRoot: {fileID: 8192368636913206643, guid: cea58d8aca4b23a4a984b3b7ccb5ebf4,
-    type: 3}
 --- !u!82 &2538319606424576527
 AudioSource:
   m_ObjectHideFlags: 0
@@ -147,6 +132,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &9073969249939526662
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203000293820104941}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 8
+--- !u!114 &-7996962550788759454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203000293820104941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da40a8c8cf57444bba0258e5fb5efd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  moveDir: {x: 1, y: 0}
+  bullet: {fileID: 891459681356595897, guid: fe3cbbd96e3770449b751f5afb29d825, type: 3}
+  DestroyedRoot: {fileID: 8192368636913206643, guid: cea58d8aca4b23a4a984b3b7ccb5ebf4,
+    type: 3}
+--- !u!114 &3454151354854643038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203000293820104941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363fad6ae7d50a247ad43ba7f8a30060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThreeD: {fileID: 6984591244086711245}
+  TwoD: {fileID: 2027059849722485319}
+  IsParticleEffect: 0
 --- !u!1 &2027059849722485319
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1262240055939308779}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7369620442930271422
 SpriteRenderer:
@@ -274,8 +307,6 @@ GameObject:
   - component: {fileID: 3083850050956414065}
   - component: {fileID: 1325828470088424767}
   - component: {fileID: 395008874791002088}
-  - component: {fileID: 5918628935129813496}
-  - component: {fileID: 6446466138443933987}
   m_Layer: 11
   m_Name: 3D
   m_TagString: Untagged
@@ -295,7 +326,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1262240055939308779}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!33 &1325828470088424767
 MeshFilter:
@@ -346,32 +377,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!58 &5918628935129813496
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6984591244086711245}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 15.042523
---- !u!114 &6446466138443933987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6984591244086711245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e41f320b9c3eb458dcc4b51085421d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ufoParent: {fileID: -7996962550788759454}

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5590114655224875132
 Transform:
   m_ObjectHideFlags: 0
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThreeD: {fileID: 7674074105704645242}
   TwoD: {fileID: 4509614276597791766}
+  IsParticleEffect: 0
 --- !u!1 &7674074105704645242
 GameObject:
   m_ObjectHideFlags: 0

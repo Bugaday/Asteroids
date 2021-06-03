@@ -7,12 +7,15 @@ public class Ship : MonoBehaviour
     private const float deadZoneRotation = 2.0f;
     public Bullet bullet;
     public GameObject SpritesRoot;
-    public Transform Engine;
-    public Transform ReverseEngine;
-    public Transform LeftLateralEngine;
-    public Transform RightLateralEngine;
-    public Transform LeftRotationEngine;
-    public Transform RightRotationEngine;
+
+    //Engines
+    public Transform[] Engines;
+    public Transform[] ReverseEngines;
+    public Transform[] LeftLateralEngines;
+    public Transform[] RightLateralEngines;
+    public Transform[] LeftRotationEngines;
+    public Transform[] RightRotationEngines;
+
     public Transform FirePoint;
     public GameObject Forcefield;
     public GameObject Rendering;
@@ -105,19 +108,33 @@ public class Ship : MonoBehaviour
         {
             if(angleAimingDifference > 1)
             {
-                RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, RightRotationEngine.localScale.y + 1, RightRotationEngine.localScale.z);
-                RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, Mathf.Clamp(RightRotationEngine.localScale.y, 0.6f, 3f), RightRotationEngine.localScale.z);
+                foreach (var item in RightRotationEngines)
+                {
+                    item.localScale = new Vector3(item.localScale.x, item.localScale.y + 1, item.localScale.z);
+                    item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0.6f, 3f), item.localScale.z);
+                }
+
             }
             else if(angleAimingDifference < -1)
             {
-                LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.y + 1, LeftRotationEngine.localScale.z);
-                LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x,Mathf.Clamp(LeftRotationEngine.localScale.y,0.6f,3f),LeftRotationEngine.localScale.z);
+                foreach (var item in LeftRotationEngines)
+                {
+                    item.localScale = new Vector3(item.localScale.x, item.localScale.y + 1, item.localScale.z);
+                    item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0.6f, 3f), item.localScale.z);
+                }
+
             }
         }
         else
         {
-            RightRotationEngine.localScale = new Vector3(RightRotationEngine.localScale.x, RightRotationEngine.localScale.x, RightRotationEngine.localScale.z);
-            LeftRotationEngine.localScale = new Vector3(LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.x, LeftRotationEngine.localScale.z);
+            foreach (var item in RightRotationEngines)
+            {
+                item.localScale = new Vector3(item.localScale.x, item.localScale.x, item.localScale.z);
+            }
+            foreach (var item in LeftRotationEngines)
+            {
+                item.localScale = new Vector3(item.localScale.x, item.localScale.x, item.localScale.z);
+            }
         }
 
         //Calculate lateral engine effects
@@ -127,22 +144,22 @@ public class Ship : MonoBehaviour
         float mainEngineDot = Vector2.Dot(shipForceDir, normVec);
         float latEngineDot = Vector2.Dot(shipForceDir, normVec2);
 
-        foreach (Transform item in Engine.transform)
+        foreach (Transform item in Engines)
         {
             item.localScale = new Vector3(item.localScale.x,mainEngineDot * 6f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
-        foreach (Transform item in ReverseEngine.transform)
+        foreach (Transform item in ReverseEngines)
         {
             item.localScale = new Vector3(item.localScale.x, mainEngineDot * -6f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
-        foreach (Transform item in LeftLateralEngine.transform)
+        foreach (Transform item in LeftLateralEngines)
         {
             item.localScale = new Vector3(item.localScale.x, latEngineDot * 5f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
-        foreach (Transform item in RightLateralEngine.transform)
+        foreach (Transform item in RightLateralEngines)
         {
             item.localScale = new Vector3(item.localScale.x, latEngineDot * -5f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y,0,6), item.localScale.z);
@@ -151,7 +168,6 @@ public class Ship : MonoBehaviour
         //Fire Rate
         if (timeToNextShot <= 0)
         {
-
             canShoot = true;
         }
         else
