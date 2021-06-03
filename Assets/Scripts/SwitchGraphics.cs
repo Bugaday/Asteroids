@@ -12,10 +12,21 @@ public class SwitchGraphics : MonoBehaviour
 
     GameManager gm;
 
+    public ParticleSystemRenderer[] pRenderSystems3D;
+    public ParticleSystemRenderMode[] originalRenderModes3D;
+
+    public ParticleSystemRenderer[] pRenderSystems2D;
+    public ParticleSystemRenderMode[] originalRenderModes2D;
+
     // Start is called before the first frame update
     void Awake()
     {
         gm = FindObjectOfType<GameManager>();
+
+        if (IsParticleEffect)
+        {
+            GetParticleSystems();
+        }
 
         if (gm.IsInThreeD)
         {
@@ -24,6 +35,25 @@ public class SwitchGraphics : MonoBehaviour
         else
         {
             SwitchToTwoD();
+        }
+    }
+
+    void GetParticleSystems()
+    {
+        pRenderSystems3D = ThreeD.GetComponentsInChildren<ParticleSystemRenderer>();
+        originalRenderModes3D = new ParticleSystemRenderMode[pRenderSystems3D.Length];
+
+        for (int i = 0; i < pRenderSystems3D.Length; i++)
+        {
+            originalRenderModes3D[i] = pRenderSystems3D[i].renderMode;
+        }
+
+        pRenderSystems2D = TwoD.GetComponentsInChildren<ParticleSystemRenderer>();
+        originalRenderModes2D = new ParticleSystemRenderMode[pRenderSystems2D.Length];
+
+        for (int i = 0; i < pRenderSystems2D.Length; i++)
+        {
+            originalRenderModes2D[i] = pRenderSystems2D[i].renderMode;
         }
     }
 
@@ -50,8 +80,7 @@ public class SwitchGraphics : MonoBehaviour
 
         if (IsParticleEffect)
         {
-            ParticleEffectsOn(TwoD);
-            ParticleEffectsOff(ThreeD);
+            ParticleEffectsOff();
             return;
         }
 
@@ -65,8 +94,7 @@ public class SwitchGraphics : MonoBehaviour
 
         if (IsParticleEffect)
         {
-            ParticleEffectsOn(ThreeD);
-            ParticleEffectsOff(TwoD);
+            ParticleEffectsOn();
             return;
         }
 
@@ -74,25 +102,29 @@ public class SwitchGraphics : MonoBehaviour
         ThreeD.SetActive(true);
     }
 
-    void ParticleEffectsOn(GameObject obj)
+    void ParticleEffectsOn()
     {
-        foreach (Transform effect in obj.transform)
+        for (int i = 0; i < pRenderSystems3D.Length; i++)
         {
-            ParticleSystemRenderer effectRenderer = effect.GetComponent<ParticleSystemRenderer>();
-            effectRenderer.renderMode = ParticleSystemRenderMode.Billboard;
+            pRenderSystems3D[i].renderMode = originalRenderModes3D[i];
+        }
 
-            ParticleEffectsOn(effect.gameObject);
+        foreach (ParticleSystemRenderer render2D in pRenderSystems2D)
+        {
+            render2D.renderMode = ParticleSystemRenderMode.None;
         }
     }
 
-    void ParticleEffectsOff(GameObject obj)
+    void ParticleEffectsOff()
     {
-        foreach (Transform effect in obj.transform)
+        for (int i = 0; i < pRenderSystems2D.Length; i++)
         {
-            ParticleSystemRenderer effectRenderer = effect.GetComponent<ParticleSystemRenderer>();
-            effectRenderer.renderMode = ParticleSystemRenderMode.None;
+            pRenderSystems2D[i].renderMode = originalRenderModes2D[i];
+        }
 
-            ParticleEffectsOff(effect.gameObject);
+        foreach (ParticleSystemRenderer render3D in pRenderSystems3D)
+        {
+            render3D.renderMode = ParticleSystemRenderMode.None;
         }
     }
 

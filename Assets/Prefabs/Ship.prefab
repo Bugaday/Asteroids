@@ -1747,7 +1747,7 @@ MonoBehaviour:
   FirePoint: {fileID: 6681390605816631463}
   Forcefield: {fileID: 2127538586277757689}
   Rendering: {fileID: 2644894301668597389}
-  DestroyedRoot: {fileID: 8192368636913206643, guid: cea58d8aca4b23a4a984b3b7ccb5ebf4,
+  DestroyedRoot: {fileID: 3106414685755289568, guid: 6772bb70b4dfa83468faf3dafae98477,
     type: 3}
   Reticle: {fileID: 2455548401686887477}
   rb: {fileID: 0}
@@ -1770,6 +1770,10 @@ MonoBehaviour:
   ThreeD: {fileID: 1715757121511391298}
   TwoD: {fileID: 792929087737923845}
   IsParticleEffect: 0
+  pRenderSystems3D: []
+  originalRenderModes3D: 
+  pRenderSystems2D: []
+  originalRenderModes2D: 
 --- !u!1 &8073644198985319130
 GameObject:
   m_ObjectHideFlags: 0

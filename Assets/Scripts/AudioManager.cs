@@ -17,15 +17,14 @@ public class AudioManager : MonoBehaviour
 
             sound.source.clip = sound.clip;
 
-            float newVolume = Random.Range(-0.2f, 0.2f);
-            float newPitch = Random.Range(-0.2f, 0.2f);
+            float newVolume = Random.Range(-0.4f, 0.4f);
+            float newPitch = Random.Range(-0.4f, 0.4f);
 
             sound.source.volume = sound.volume + newVolume;
             sound.source.pitch = sound.pitch + newPitch;
 
             ClipDict.Add(sound.name, sound);
         }
-
     }
 
     // Update is called once per frame

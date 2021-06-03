@@ -163,7 +163,7 @@ MonoBehaviour:
   speed: 40
   moveDir: {x: 1, y: 0}
   bullet: {fileID: 891459681356595897, guid: fe3cbbd96e3770449b751f5afb29d825, type: 3}
-  DestroyedRoot: {fileID: 8192368636913206643, guid: cea58d8aca4b23a4a984b3b7ccb5ebf4,
+  DestroyedRoot: {fileID: 3106414685755289568, guid: 6772bb70b4dfa83468faf3dafae98477,
     type: 3}
 --- !u!114 &3454151354854643038
 MonoBehaviour:
@@ -180,6 +180,10 @@ MonoBehaviour:
   ThreeD: {fileID: 6984591244086711245}
   TwoD: {fileID: 2027059849722485319}
   IsParticleEffect: 0
+  pRenderSystems3D: []
+  originalRenderModes3D: 
+  pRenderSystems2D: []
+  originalRenderModes2D: 
 --- !u!1 &2027059849722485319
 GameObject:
   m_ObjectHideFlags: 0
