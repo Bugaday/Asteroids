@@ -51,7 +51,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Alpha
-    path: Rendering/3D/Ship3D/Forcefield
+    path: Forcefield/Forcefield-3D
     classID: 23
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -118,7 +118,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Alpha
-    path: Rendering/3D/Ship3D/Forcefield
+    path: Forcefield/Forcefield-3D
     classID: 23
     script: {fileID: 0}
   m_EulerEditorCurves: []
