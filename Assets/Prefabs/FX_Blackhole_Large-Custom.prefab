@@ -9520,7 +9520,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -19144,10 +19144,6 @@ MonoBehaviour:
   ThreeD: {fileID: 7628515311726015602}
   TwoD: {fileID: 8222366802680141855}
   IsParticleEffect: 1
-  pRenderSystems3D: []
-  originalRenderModes3D: 
-  pRenderSystems2D: []
-  originalRenderModes2D: 
 --- !u!114 &-8954463004464975562
 MonoBehaviour:
   m_ObjectHideFlags: 0

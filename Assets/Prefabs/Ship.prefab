@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2668362071617846178
 Transform:
   m_ObjectHideFlags: 0
@@ -345,10 +345,6 @@ MonoBehaviour:
   ThreeD: {fileID: 2127538586277757689}
   TwoD: {fileID: 4511550564649055865}
   IsParticleEffect: 0
-  pRenderSystems3D: []
-  originalRenderModes3D: 
-  pRenderSystems2D: []
-  originalRenderModes2D: 
 --- !u!1 &1669754286327799302
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2856972574354261477
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1875,7 @@ MonoBehaviour:
   - {fileID: 5397774081647513395}
   - {fileID: 2610243658450681992}
   FirePoint: {fileID: 6681390605816631463}
-  Forcefield: {fileID: 2127538586277757689}
+  Forcefield: {fileID: 1532383072957431694}
   Rendering: {fileID: 2644894301668597389}
   DestroyedRoot: {fileID: 3106414685755289568, guid: 6772bb70b4dfa83468faf3dafae98477,
     type: 3}
@@ -1904,10 +1900,6 @@ MonoBehaviour:
   ThreeD: {fileID: 1715757121511391298}
   TwoD: {fileID: 792929087737923845}
   IsParticleEffect: 0
-  pRenderSystems3D: []
-  originalRenderModes3D: 
-  pRenderSystems2D: []
-  originalRenderModes2D: 
 --- !u!1 &8073644198985319130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2767,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1710689544951512866}
     m_Modifications:
+    - target: {fileID: 2754227459347404152, guid: c733e49099851c04ea10988403af66e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6379365643855864657, guid: c733e49099851c04ea10988403af66e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -2834,6 +2831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Reticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6386044141720180029, guid: c733e49099851c04ea10988403af66e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c733e49099851c04ea10988403af66e6, type: 3}

@@ -26,7 +26,7 @@ public class Ship : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     AudioSource aSource;
-    Animation anim;
+    public Animation anim;
 
     //Input
     float moveInputX = 0;
@@ -44,7 +44,7 @@ public class Ship : MonoBehaviour
     LayerMask hitLayer;
 
     Vector2 shipForceDir;
-    bool damageable = true;
+    public bool damageable = true;
     public float VelClamp = 4f;
     public float RotSpeed = 100f;
     public float Force = 40f;
@@ -68,8 +68,6 @@ public class Ship : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         am = FindObjectOfType<AudioManager>();
         cam = Camera.main;
-
-        StartCoroutine(StartInvincible());
     }
 
     private void Update()
@@ -151,17 +149,17 @@ public class Ship : MonoBehaviour
         }
         foreach (Transform item in ReverseEngines)
         {
-            item.localScale = new Vector3(item.localScale.x, mainEngineDot * -6f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, mainEngineDot * -4f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
         foreach (Transform item in LeftLateralEngines)
         {
-            item.localScale = new Vector3(item.localScale.x, latEngineDot * 5f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, latEngineDot * 4f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y, 0, 6), item.localScale.z);
         }
         foreach (Transform item in RightLateralEngines)
         {
-            item.localScale = new Vector3(item.localScale.x, latEngineDot * -5f, item.localScale.z);
+            item.localScale = new Vector3(item.localScale.x, latEngineDot * -4f, item.localScale.z);
             item.localScale = new Vector3(item.localScale.x, Mathf.Clamp(item.localScale.y,0,6), item.localScale.z);
         }
 
@@ -239,15 +237,6 @@ public class Ship : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public IEnumerator StartInvincible()
-    {
-        damageable = false;
-        Forcefield.SetActive(true);
-        anim.Play();
-        yield return new WaitForSeconds(2);
-        anim.Stop();
-        Forcefield.SetActive(false);
-        damageable = true;
-    }
+
 
 }

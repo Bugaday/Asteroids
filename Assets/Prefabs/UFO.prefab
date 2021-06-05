@@ -180,10 +180,6 @@ MonoBehaviour:
   ThreeD: {fileID: 6984591244086711245}
   TwoD: {fileID: 2027059849722485319}
   IsParticleEffect: 0
-  pRenderSystems3D: []
-  originalRenderModes3D: 
-  pRenderSystems2D: []
-  originalRenderModes2D: 
 --- !u!1 &2027059849722485319
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 2027059849722485319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1262240055939308779}
   m_RootOrder: 1
@@ -284,7 +280,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 16}
+    oldSize: {x: 32, y: 32}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -12,11 +12,11 @@ public class SwitchGraphics : MonoBehaviour
 
     GameManager gm;
 
-    public ParticleSystemRenderer[] pRenderSystems3D;
-    public ParticleSystemRenderMode[] originalRenderModes3D;
+    ParticleSystemRenderer[] pRenderSystems3D;
+    ParticleSystemRenderMode[] originalRenderModes3D;
 
-    public ParticleSystemRenderer[] pRenderSystems2D;
-    public ParticleSystemRenderMode[] originalRenderModes2D;
+    ParticleSystemRenderer[] pRenderSystems2D;
+    ParticleSystemRenderMode[] originalRenderModes2D;
 
     // Start is called before the first frame update
     void Awake()

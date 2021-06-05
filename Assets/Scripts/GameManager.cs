@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     public int extraLifeAtScore;
     bool hyperSpaceAvailable = true;
 
+    //Coroutines
+    Coroutine invincibleRoutine;
+
 
     private void Awake()
     {
@@ -89,17 +92,15 @@ public class GameManager : MonoBehaviour
         am.Play("WarpIn");
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
         yield return new WaitForSeconds(1);
-        CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
+        FreshShip(Vector3.zero);
     }
 
     IEnumerator NewLevel()
     {
-        //yield return new WaitForSeconds(1);
-        //um.LevelClearText.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
         am.Play("WarpOut");
-        Destroy(CurrentShip.gameObject);
+        DestroyShipAndStopCoroutines();
 
         yield return new WaitForSeconds(3);
         //um.LevelClearText.gameObject.SetActive(false);
@@ -121,33 +122,43 @@ public class GameManager : MonoBehaviour
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
         am.Play("WarpIn");
         yield return new WaitForSeconds(1);
-        CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
-        StartCoroutine(CurrentShip.StartInvincible());
+        FreshShip(Vector3.zero);
         hyperSpaceAvailable = true;
         um.ChangeWarp(true);
         StartCoroutine(CheckLevelOver());
     }
 
-    IEnumerator FreshShip()
+    IEnumerator Respawn()
     {
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
         am.Play("WarpIn");
         yield return new WaitForSeconds(1);
-        CurrentShip = Instantiate(NewShip, Vector3.zero, Quaternion.identity);
-        StartCoroutine(CurrentShip.StartInvincible());
+        FreshShip(Vector3.zero);
     }
 
     IEnumerator HyperSpace(Vector3 newPosition)
     {
         am.Play("WarpOut");
         Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
-        Destroy(CurrentShip.gameObject);
+        DestroyShipAndStopCoroutines();
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, newPosition, Quaternion.identity);
         am.Play("WarpIn");
         yield return new WaitForSeconds(1);
-        CurrentShip = Instantiate(NewShip, newPosition, Quaternion.identity);
+        FreshShip(newPosition);
+    }
+
+    private void DestroyShipAndStopCoroutines()
+    {
+        if (invincibleRoutine != null) StopCoroutine(invincibleRoutine);
+        Destroy(CurrentShip.gameObject);
+    }
+
+    void FreshShip(Vector3 position)
+    {
+        CurrentShip = Instantiate(NewShip, position, Quaternion.identity);
+        invincibleRoutine = StartCoroutine(StartInvincible());
     }
 
     #endregion
@@ -176,6 +187,7 @@ public class GameManager : MonoBehaviour
                 hyperSpaceAvailable = false;
                 um.ChangeWarp(false);
                 Vector3 newPos = RandomPointInLevel();
+                StopCoroutine("StartInvincible");
                 StartCoroutine(HyperSpace(newPos));
             }
         }
@@ -274,8 +286,19 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FreshShip());
+            StartCoroutine(Respawn());
         }
+    }
+
+    public IEnumerator StartInvincible()
+    {
+        CurrentShip.damageable = false;
+        CurrentShip.Forcefield.SetActive(true);
+        CurrentShip.anim.Play();
+        yield return new WaitForSeconds(2);
+        CurrentShip.anim.Stop();
+        CurrentShip.Forcefield.SetActive(false);
+        CurrentShip.damageable = true;
     }
 
     void SpawnUfo()
