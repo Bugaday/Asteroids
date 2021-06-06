@@ -16,12 +16,16 @@ public class UFO : MonoBehaviour
 
     AudioSource aSource;
 
+    LayerMask bulletMask;
+
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
         cam = Camera.main;
         am = FindObjectOfType<AudioManager>();
         aSource = GetComponent<AudioSource>();
+        bulletMask = LayerMask.NameToLayer("Bullet");
+
         StartCoroutine(Shoot());
     }
 
@@ -58,6 +62,6 @@ public class UFO : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DestroyUFO();
+        if (collision.gameObject.layer == bulletMask) DestroyUFO();
     }
 }

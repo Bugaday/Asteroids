@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+
 //using System;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioMixer mixer;
+    public AudioMixerGroup Explosion;
+    public AudioMixerGroup ShipExplosion;
+
     public Sound[] sounds;
     public Dictionary<string,Sound> ClipDict = new Dictionary<string,Sound>();
+
 
     private void Awake()
     {
@@ -16,6 +23,8 @@ public class AudioManager : MonoBehaviour
             sound.source.playOnAwake = false;
 
             sound.source.clip = sound.clip;
+
+            sound.source.outputAudioMixerGroup = sound.MixerGroup;
 
             float newVolume = Random.Range(-0.4f, 0.4f);
             float newPitch = Random.Range(-0.4f, 0.4f);

@@ -13,7 +13,7 @@ public class Asteroid : MonoBehaviour
     public GameObject ThreeD;
     public GameObject TwoD;
 
-    Vector3 rotAxis;
+    Vector3 rotAxis3D;
     public float MinRotSpeed = 30f;
     public float MaxRotSpeed = 50f;
 
@@ -39,12 +39,13 @@ public class Asteroid : MonoBehaviour
         bulletMask = LayerMask.NameToLayer("Bullet");
 
         MaxRotSpeed = Random.Range(MinRotSpeed, MaxRotSpeed);
-        rotAxis = Random.rotation.eulerAngles;
+        rotAxis3D = Random.rotation.eulerAngles;
     }
 
     private void Update()
     {
-        ThreeD.transform.rotation = Quaternion.AngleAxis(Time.timeSinceLevelLoad * MaxRotSpeed, rotAxis);
+        ThreeD.transform.rotation = Quaternion.AngleAxis(Time.timeSinceLevelLoad * MaxRotSpeed, rotAxis3D);
+        TwoD.transform.Rotate(0, 0, MaxRotSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public int Score = 0;
     public int extraLifeAtScore;
     bool hyperSpaceAvailable = true;
+    Vector3 shipPos;
 
     //Coroutines
     Coroutine invincibleRoutine;
@@ -95,10 +96,10 @@ public class GameManager : MonoBehaviour
         FreshShip(Vector3.zero);
     }
 
-    IEnumerator NewLevel()
+    IEnumerator NewLevel(Vector3 HyperspaceEffectPosition)
     {
         yield return new WaitForSeconds(1);
-        Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
+        Instantiate(HyperSpaceEffect, HyperspaceEffectPosition, Quaternion.identity);
         am.Play("WarpOut");
         DestroyShipAndStopCoroutines();
 
@@ -137,10 +138,10 @@ public class GameManager : MonoBehaviour
         FreshShip(Vector3.zero);
     }
 
-    IEnumerator HyperSpace(Vector3 newPosition)
+    IEnumerator HyperSpace(Vector3 currentPosition, Vector3 newPosition)
     {
         am.Play("WarpOut");
-        Instantiate(HyperSpaceEffect, CurrentShip.transform.position, Quaternion.identity);
+        Instantiate(HyperSpaceEffect, currentPosition, Quaternion.identity);
         DestroyShipAndStopCoroutines();
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, newPosition, Quaternion.identity);
@@ -152,7 +153,7 @@ public class GameManager : MonoBehaviour
     private void DestroyShipAndStopCoroutines()
     {
         if (invincibleRoutine != null) StopCoroutine(invincibleRoutine);
-        Destroy(CurrentShip.gameObject);
+        if(CurrentShip) Destroy(CurrentShip.gameObject);
     }
 
     void FreshShip(Vector3 position)
@@ -165,8 +166,23 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
+        //Cheats
+        /*
         if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
-        if (Input.GetKeyDown(KeyCode.N)) StartCoroutine(NewLevel());
+        if (Input.GetKeyDown(KeyCode.D)) DestroyShipAndStopCoroutines();
+
+        if (Input.GetKeyDown(KeyCode.N)) {
+            Asteroid[] asteroidsInScene = FindObjectsOfType<Asteroid>();
+
+            foreach (Asteroid ast in asteroidsInScene)
+            {
+                Destroy(ast.gameObject);
+            }
+        }
+        */
+
+        if (CurrentShip) shipPos = CurrentShip.transform.position;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -188,7 +204,7 @@ public class GameManager : MonoBehaviour
                 um.ChangeWarp(false);
                 Vector3 newPos = RandomPointInLevel();
                 StopCoroutine("StartInvincible");
-                StartCoroutine(HyperSpace(newPos));
+                StartCoroutine(HyperSpace(shipPos, newPos));
             }
         }
 
@@ -279,7 +295,8 @@ public class GameManager : MonoBehaviour
     public void ShipDestroyed()
     {
         lives--;
-        um.UpdateLives(lives);
+
+        um.RemoveLife();
         if(lives <= 0)
         {
             StartCoroutine(GameOver());
@@ -312,7 +329,7 @@ public class GameManager : MonoBehaviour
         if(Score >= extraLifeAtScore)
         {
             lives++;
-            um.UpdateLives(lives);
+            um.AddLife();
             extraLifeAtScore = Score + ExtraLifeInterval;
         }
 
@@ -326,7 +343,7 @@ public class GameManager : MonoBehaviour
         if (asteroidsLeft <= 0)
         {
             AsteroidsToSpawn++;
-            StartCoroutine(NewLevel());
+            StartCoroutine(NewLevel(shipPos));
         }
         else
         {

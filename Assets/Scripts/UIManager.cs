@@ -48,7 +48,31 @@ public class UIManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public void UpdateLives(int lives)
+    public void AddLife()
+    {
+        //ReCreateLives(lives);
+
+        Life lastLife = LivesUI.GetChild(LivesUI.childCount - 1).GetComponent<Life>();
+
+
+        Vector2 lifePos = new Vector2(lastLife.GetComponent<RectTransform>().anchoredPosition.x - 30, 0);
+        RectTransform newLife = Instantiate(Life, LivesUI);
+        newLife.anchorMax = Vector2.one;
+        newLife.anchorMin = Vector2.one;
+        newLife.pivot = Vector2.one;
+        newLife.anchoredPosition = lifePos;
+
+        newLife.GetComponent<Life>().GainLife();
+    }
+
+    public void RemoveLife()
+    {
+        //ReCreateLives(lives);
+
+        LivesUI.GetChild(LivesUI.childCount - 1).GetComponent<Life>().LoseLife();
+    }
+
+    private void ReCreateLives(int lives)
     {
         foreach (RectTransform life in LivesUI)
         {
@@ -57,8 +81,8 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < lives; i++)
         {
-            Vector2 lifePos = new Vector2(-i * 30,0);
-            RectTransform newLife = Instantiate(Life,LivesUI);
+            Vector2 lifePos = new Vector2(-i * 30, 0);
+            RectTransform newLife = Instantiate(Life, LivesUI);
             newLife.anchorMax = Vector2.one;
             newLife.anchorMin = Vector2.one;
             newLife.pivot = Vector2.one;
