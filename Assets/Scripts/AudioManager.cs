@@ -8,8 +8,6 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public AudioMixer mixer;
-    public AudioMixerGroup Explosion;
-    public AudioMixerGroup ShipExplosion;
 
     public Sound[] sounds;
     public Dictionary<string,Sound> ClipDict = new Dictionary<string,Sound>();
@@ -37,9 +35,22 @@ public class AudioManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Play(string name)
+    public void PlayOneShot(string name)
     {
         Sound s = ClipDict[name];
         s.source.PlayOneShot(s.source.clip);
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = ClipDict[name];
+        s.source.Stop();
+    }
+
+    public bool CheckIsPlaying(string name)
+    {
+        Sound s = ClipDict[name];
+        bool isPlaying = s.source.isPlaying;
+        return isPlaying;
     }
 }

@@ -1424,8 +1424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 1f899645bec45914995b59a350ba2bcd, type: 2}
-  Explosion: {fileID: 0}
-  ShipExplosion: {fileID: 0}
   sounds:
   - name: Explosion
     clip: {fileID: 8300000, guid: 26a47c6c55584ef46ba727b48e880b0a, type: 3}
@@ -1458,6 +1456,13 @@ MonoBehaviour:
   - name: WarpOut
     clip: {fileID: 8300000, guid: 3d5bdc1e3c909654a9308d5e348b5117, type: 3}
     MixerGroup: {fileID: -3143724255838486802, guid: 1f899645bec45914995b59a350ba2bcd,
+      type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Thrusters
+    clip: {fileID: 8300000, guid: ab52543b591cc64458e25fab8ba75313, type: 3}
+    MixerGroup: {fileID: -3324782385106460955, guid: 1f899645bec45914995b59a350ba2bcd,
       type: 2}
     volume: 1
     pitch: 1

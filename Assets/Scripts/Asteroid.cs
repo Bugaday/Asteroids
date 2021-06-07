@@ -97,7 +97,7 @@ public class Asteroid : MonoBehaviour
     private void DestroyAsteroid()
     {
         Instantiate(gm.ExplosionAsteroid[stage-1], transform.position, Quaternion.identity);
-        am.Play("Explosion");
+        am.PlayOneShot("Explosion");
         cam.GetComponent<CamShake>().ShakeStrength = 1 / (float)stage;
         cam.GetComponent<CamShake>().camShakeActive = true;
         Destroy(gameObject);

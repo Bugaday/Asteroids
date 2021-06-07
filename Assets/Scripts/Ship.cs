@@ -79,6 +79,16 @@ public class Ship : MonoBehaviour
         //Calculate force direction
         shipForceDir = new Vector2(moveInputX, moveInputY).normalized;
 
+        //Ship audio
+        if (shipForceDir != Vector2.zero)
+        {
+            if (!am.CheckIsPlaying("Thrusters")) am.PlayOneShot("Thrusters");
+        }
+        else
+        {
+            if (am.CheckIsPlaying("Thrusters")) am.Stop("Thrusters");
+        }
+
         //Catch mouse input
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
@@ -195,7 +205,8 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(shipForceDir != Vector2.zero)
+
+        if(shipForceDir.magnitude == 1)
         {
             rb.AddForce(shipForceDir * Force);
         }
@@ -227,7 +238,7 @@ public class Ship : MonoBehaviour
 
     void DestroyShip()
     {
-        am.Play("ShipExplosion");
+        am.PlayOneShot("ShipExplosion");
         Instantiate(gm.ExplosionShip, transform.position, Quaternion.identity);
         cam.GetComponent<CamShake>().ShakeStrength = 1.5f;
         cam.GetComponent<CamShake>().camShakeActive = true;

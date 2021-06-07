@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     {
         PopulateLevel();
         yield return new WaitForSeconds(1);
-        am.Play("WarpIn");
+        am.PlayOneShot("WarpIn");
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
         yield return new WaitForSeconds(1);
         FreshShip(Vector3.zero);
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, HyperspaceEffectPosition, Quaternion.identity);
-        am.Play("WarpOut");
+        am.PlayOneShot("WarpOut");
         DestroyShipAndStopCoroutines();
 
         yield return new WaitForSeconds(3);
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         PopulateLevel();
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
-        am.Play("WarpIn");
+        am.PlayOneShot("WarpIn");
         yield return new WaitForSeconds(1);
         FreshShip(Vector3.zero);
         hyperSpaceAvailable = true;
@@ -133,19 +133,19 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, Vector3.zero, Quaternion.identity);
-        am.Play("WarpIn");
+        am.PlayOneShot("WarpIn");
         yield return new WaitForSeconds(1);
         FreshShip(Vector3.zero);
     }
 
     IEnumerator HyperSpace(Vector3 currentPosition, Vector3 newPosition)
     {
-        am.Play("WarpOut");
+        am.PlayOneShot("WarpOut");
         Instantiate(HyperSpaceEffect, currentPosition, Quaternion.identity);
         DestroyShipAndStopCoroutines();
         yield return new WaitForSeconds(1);
         Instantiate(HyperSpaceEffect, newPosition, Quaternion.identity);
-        am.Play("WarpIn");
+        am.PlayOneShot("WarpIn");
         yield return new WaitForSeconds(1);
         FreshShip(newPosition);
     }
@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
     private void DestroyShipAndStopCoroutines()
     {
         if (invincibleRoutine != null) StopCoroutine(invincibleRoutine);
+        am.Stop("Thrusters");
         if(CurrentShip) Destroy(CurrentShip.gameObject);
     }
 
